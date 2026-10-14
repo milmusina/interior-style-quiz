@@ -1,0 +1,3471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  
+  <!-- High-Speed Preconnect & DNS Prefetch for Instant Image Loading -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://plus.unsplash.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://plus.unsplash.com">
+  <title>What Is Your True Interior Design Style? | Home Planner 3D Quiz</title>
+  <meta name="description" content="Discover your exact interior design direction and aesthetic archetype in 60 seconds. Curated 5-color HEX paint palette, small-space clearance golden rules, and room styling ideas.">
+  <meta name="keywords" content="interior design style quiz, find my home aesthetic, design archetype test, room planner 3d, home planner quiz, interior paint palette hex, small apartment clearance rules">
+  <meta name="author" content="Room Planner Ltd">
+  <link rel="canonical" href="https://milmusina.github.io/interior-style-quiz/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://milmusina.github.io/interior-style-quiz/">
+  <meta property="og:title" content="What Is Your True Interior Design Style? | Home Planner">
+  <meta property="og:description" content="Visual 60-sec diagnostic. Discover your design direction, humanized space personality, copyable HEX paint swatches, and 3D room ideas.">
+  <meta property="og:image" content="https://milmusina.github.io/interior-style-quiz/assets/hero_scandinavian_nordic.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="What Is Your True Interior Design Style? | Home Planner">
+  <meta property="twitter:description" content="Visual 60-second style diagnostic with copyable HEX swatches and 3D room ideas.">
+  <meta property="twitter:image" content="https://assets.icandesignapp.com/images/1eb662a592fb7a53456d8c18c27ef9efe2c4a174-1200x630-w1200.webp">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="https://assets.icandesignapp.com/images/68ca0415983db7b09c96ec0083e6c64d53658985-192x192-w192.webp">
+  <link rel="apple-touch-icon" href="https://assets.icandesignapp.com/images/68ca0415983db7b09c96ec0083e6c64d53658985-192x192-w192.webp">
+
+  <!-- Fonts: Inter + Hurricane (Latin) + Caveat (Cyrillic & International Script) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Hurricane&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/hero_data.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+            script: ['"Hurricane"', '"Caveat"', 'cursive', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              black: '#030213',
+              dark: '#111827',
+              gray: '#717182',
+              light: '#F8F9FA',
+              border: '#E5E7EB',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://homeplannerapp.com/quiz/style/#app",
+        "name": "Home Planner Interior Style Diagnostic",
+        "url": "https://homeplannerapp.com/quiz/style/",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "iOS, Android, macOS, Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "ratingCount": "550000" }
+      },
+      {
+        "@type": "Quiz",
+        "@id": "https://homeplannerapp.com/quiz/style/#quiz",
+        "name": "What Is Your True Interior Design Style?",
+        "provider": { "@type": "Organization", "name": "Room Planner Ltd", "url": "https://homeplannerapp.com" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Prevent layout shifting & flickering */
+    .fade-transition {
+      transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-out {
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+    }
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Option card selected state */
+    .option-card {
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .option-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    }
+    .option-card.selected {
+      border-color: #030213 !important;
+      box-shadow: 0 0 0 2px #030213, 0 12px 28px -6px rgba(3, 2, 19, 0.15) !important;
+      transform: scale(0.985);
+    }
+
+    /* Toast */
+    #toast {
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8F9FA] text-[#030213] antialiased min-h-screen flex flex-col justify-between selection:bg-stone-200">
+
+  <!-- OFFICIAL HOME PLANNER NAVBAR WITH 20-LANGUAGE PICKER -->
+  <header class="w-full bg-white border-b border-gray-200/80 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Home Planner brand -->
+      <a href="https://homeplannerapp.com/?utm_source=style_quiz&utm_medium=lead_magnet&utm_campaign=nav_logo" 
+         target="_blank" rel="noopener noreferrer" 
+         class="flex items-center gap-3 group">
+        <img src="https://assets.icandesignapp.com/images/68ca0415983db7b09c96ec0083e6c64d53658985-192x192-w192.webp" 
+             alt="Home Planner Logo" 
+             class="w-9 h-9 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
+        <div>
+          <span class="font-bold text-base tracking-tight text-[#030213] block leading-none">Home Planner</span>
+          <span class="text-[11px] text-gray-500 font-medium" data-i18n="tagline">3D Interior &amp; Floor Plan AI</span>
+        </div>
+      </a>
+
+      <!-- Right controls: 20-Language Selector & App CTA -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        
+        <!-- Multi-language Selector (20 Languages) -->
+        <div class="relative">
+          <select id="lang-selector" 
+                  class="appearance-none bg-gray-100 hover:bg-gray-200/80 text-gray-800 text-xs font-semibold py-1.5 pl-3 pr-7 rounded-full border border-transparent hover:border-gray-300 transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-black">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="tr">Türkçe</option>
+            <option value="pl">Polski</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="uk">Українська</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="zh">简体中文</option>
+            <option value="ar">العربية</option>
+            <option value="hi">हिन्दी</option>
+            <option value="id">Indonesia</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="th">ไทย</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </div>
+
+        <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 text-stone-800 font-medium text-xs border border-stone-200/80">
+          <svg class="w-3 h-3 text-stone-900 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <span class="font-bold">4.6</span> <span class="text-stone-300">&bull;</span> <span>30M+ Users</span>
+        </span>
+
+        <a href="https://homeplannerapp.com/?utm_source=style_quiz&utm_medium=lead_magnet&utm_campaign=nav_button" 
+           target="_blank" rel="noopener noreferrer"
+           class="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#030213] hover:bg-black text-white font-semibold text-xs transition shadow-sm hover:shadow"
+           data-i18n="download_app">
+          Download App
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="flex-grow flex items-center justify-center py-6 sm:py-10 px-3 sm:px-6">
+    <div class="w-full max-w-4xl bg-white rounded-3xl border border-gray-200/90 shadow-[0_12px_40px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300">
+
+      <!-- PROGRESS BAR -->
+      <div id="progress-wrapper" class="w-full h-1.5 bg-gray-100 relative">
+        <div id="progress-bar" 
+             class="h-full bg-[#030213] transition-all duration-300 ease-out" 
+             style="width: 0%;"></div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- SCREEN 1: WELCOME / INTRO SCREEN           -->
+      <!-- ========================================== -->
+      <section id="screen-intro" class="p-6 sm:p-12 text-center fade-transition fade-in">
+        
+        <!-- Script Badge in Hurricane/Caveat font -->
+        <div class="inline-block mb-3">
+          <span class="font-script text-3xl sm:text-4xl text-gray-700" data-i18n="intro_script">Find your design direction</span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#030213] leading-tight mb-4 max-w-2xl mx-auto" data-i18n="intro_title">
+          What Is Your True Interior Design Style?
+        </h1>
+
+        <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8 font-normal" data-i18n="intro_desc">
+          Compare studio seating silhouettes, material moodboards, and ambient lighting in 60 seconds. Discover your architectural direction, personality space profile, and curated HEX paint palette.
+        </p>
+
+        <!-- Social Proof Stats (Strictly 2 lines per column) -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto mb-9 p-3 sm:p-4 bg-[#F8F9FA] rounded-2xl border border-gray-200/70 text-center">
+          <div class="flex flex-col justify-center py-1">
+            <div class="text-[#030213] font-bold text-sm sm:text-base whitespace-nowrap leading-tight">60 sec</div>
+            <div class="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap leading-tight mt-1" data-i18n="intro_stat1">Visual Test</div>
+          </div>
+          <div class="border-x border-gray-200 flex flex-col justify-center px-1 py-1">
+            <div class="text-[#030213] font-bold text-sm sm:text-base whitespace-nowrap leading-tight" data-i18n="intro_stat2_val">Aesthetics</div>
+            <div class="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap leading-tight mt-1" data-i18n="intro_stat2">Directions &amp; Sub-Styles</div>
+          </div>
+          <div class="flex flex-col justify-center py-1">
+            <div class="text-[#030213] font-bold text-sm sm:text-base whitespace-nowrap leading-tight">HEX Palette</div>
+            <div class="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap leading-tight mt-1" data-i18n="intro_stat3">Click to Copy</div>
+          </div>
+        </div>
+
+        <!-- Start Button -->
+        <button id="btn-start-quiz" 
+                type="button"
+                class="px-8 py-4 rounded-full bg-[#030213] hover:bg-black text-white font-bold text-sm sm:text-base shadow-lg shadow-black/10 hover:shadow-xl transition-all transform active:scale-95 inline-flex items-center justify-center gap-2.5 cursor-pointer">
+          <span data-i18n="btn_start">Start Diagnostic</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+
+        <p class="text-[11px] text-gray-400 mt-4" data-i18n="intro_privacy">
+          Free &bull; No sign-up or email required &bull; 100% private
+        </p>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SCREEN 2: ACTIVE QUESTION SCREEN           -->
+      <!-- ========================================== -->
+      <section id="screen-question" class="hidden p-5 sm:p-10 fade-transition">
+        
+        <!-- Step & Navigation Header -->
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2.5">
+            <button id="btn-prev-step" 
+                    type="button" 
+                    class="px-3 py-1 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full font-bold transition cursor-pointer flex items-center gap-1.5 text-xs shadow-2xs border border-gray-200/80"
+                    title="Previous Question">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+              <span data-i18n="btn_back">Back</span>
+            </button>
+            <span class="text-gray-300">&bull;</span>
+            <span id="question-step" class="text-xs font-bold uppercase tracking-wider text-gray-400">
+              Question 1 of 5
+            </span>
+          </div>
+
+          <span id="question-category" class="text-[11px] font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+            Color Harmonies
+          </span>
+        </div>
+
+        <!-- Question Title & Subtitle -->
+        <h2 id="question-title" class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#030213] tracking-tight leading-snug mb-2">
+          Which color palette makes you feel instantly at peace?
+        </h2>
+        <p id="question-subtitle" class="text-xs sm:text-sm text-gray-500 mb-6">
+          Choose the atmosphere your eyes naturally crave after a long day.
+        </p>
+
+        <!-- VISUAL OPTIONS CONTAINER (GRID OF ISOLATED / MOODBOARD CARDS) -->
+        <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+          <!-- Dynamically populated cards -->
+        </div>
+
+        <!-- QUESTION NAVIGATION BAR (PROMINENT BACK BUTTON) -->
+        <div class="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between">
+          <button id="btn-bottom-prev" type="button" 
+                  class="px-5 py-2.5 rounded-full border-2 border-gray-200 hover:border-gray-900 text-gray-700 hover:text-black bg-white hover:bg-gray-50 font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-xs cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+            <span data-i18n="btn_back">Back</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SCREEN 3: RESULTS SCREEN                   -->
+      <!-- ========================================== -->
+      <section id="screen-result" class="hidden p-6 sm:p-10 fade-transition">
+        
+        <!-- Result Header -->
+        <div class="text-center mb-6">
+          <h2 id="result-style-name" class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#030213] tracking-tight mt-1 mb-1">
+            Warm Organic &amp; Serene
+          </h2>
+          
+          <p id="result-style-tagline" class="font-script text-2xl sm:text-3xl text-gray-600 mb-4">
+            The art of silence and natural imperfection
+          </p>
+
+          <!-- SUB-STYLES CARDS IN THIS DIRECTION -->
+          <div class="mb-6">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-2.5" data-i18n="substyles_label">
+              Стили этого направления
+            </span>
+            <div id="result-substyles" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-2xl mx-auto">
+              <!-- Dynamically populated style cards with thumbnails -->
+            </div>
+          </div>
+        </div>
+
+        <!-- DIRECTION MOODBOARD (16:9 WITHOUT OVERLAY) -->
+        <div class="mb-7">
+          <div class="rounded-2xl overflow-hidden border border-gray-200/90 shadow-sm bg-stone-100 relative group">
+            <div class="w-full aspect-[16/9] overflow-hidden relative">
+              <img id="result-style-image"
+                   src="assets/hero_warm_organic.jpg" 
+                   alt="Interior Style Direction Moodboard" 
+                   class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700">
+            </div>
+          </div>
+        </div>
+
+        <!-- HUMANIZED PSYCHOLOGICAL SPACE PROFILE ("HOROSCOPE" STYLE) -->
+        <div class="mb-7 p-5 sm:p-6 bg-[#FAF9F6] rounded-2xl border border-stone-200">
+          <div class="flex items-center gap-2 mb-3.5">
+            <h3 class="font-bold text-sm sm:text-base text-[#030213]" data-i18n="profile_title">
+              Your Space Personality: How You Truly Live
+            </h3>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-gray-700 leading-relaxed">
+            <div class="p-3.5 bg-white rounded-xl border border-gray-200/80">
+              <span class="font-bold text-[#030213] block mb-1" data-i18n="profile_recharge_label">What Recharges You:</span>
+              <p id="result-recharge">Visual calm and physical quiet. When room surfaces are uncluttered, your mind immediately drops into relaxation mode after 7 PM.</p>
+            </div>
+            <div class="p-3.5 bg-white rounded-xl border border-gray-200/80">
+              <span class="font-bold text-[#030213] block mb-1" data-i18n="profile_flaw_label">What Drains Your Energy:</span>
+              <p id="result-flaw">Clashing synthetic colors and plastic placeholder pieces. You would rather leave an entire room corner empty for six months than settle for cheap fast-furniture.</p>
+            </div>
+          </div>
+
+          <div class="mt-3.5 p-3.5 bg-white rounded-xl border border-gray-200/80 text-xs sm:text-sm text-gray-700">
+            <span class="font-bold text-[#030213] block mb-1" data-i18n="profile_superpower_label">Your Design Superpower:</span>
+            <p id="result-superpower">An innate intuition for organic materials and honest craftsmanship. You don't buy things to impress strangers; every item in your home carries a personal connection or tactile sensory joy.</p>
+          </div>
+        </div>
+
+        <!-- 5 CLICKABLE HEX PAINT SWATCHES -->
+        <div class="mb-6 p-5 bg-[#F8F9FA] rounded-2xl border border-gray-200">
+          <div class="flex items-center justify-between mb-3.5">
+            <div>
+              <h4 class="font-bold text-sm text-[#030213]">
+                <span data-i18n="swatches_title">Signature 5-Color HEX Paint Palette</span>
+              </h4>
+              <p class="text-[11px] text-gray-500" data-i18n="swatches_subtitle">Click any color swatch to copy the HEX code to your clipboard</p>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 bg-white px-2 py-0.5 rounded border border-gray-200">
+              60-30-10 Rule
+            </span>
+          </div>
+
+          <!-- Color Swatches Grid -->
+          <div id="swatches-grid" class="grid grid-cols-5 gap-2 sm:gap-3">
+            <!-- Dynamically populated swatches -->
+          </div>
+        </div>
+
+        <!-- SMALL-SPACE & CLEARANCE GOLDEN RULE -->
+        <div class="mb-7 p-4 sm:p-5 bg-[#FAF9F6] rounded-2xl border border-stone-200">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-xl bg-stone-100 text-[#030213] border border-stone-200 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-[#030213]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.3 8.7 8.7 21.3c-.4.4-1 .4-1.4 0l-4.6-4.6c-.4-.4-.4-1 0-1.4L15.3 2.7c.4-.4 1-.4 1.4 0l4.6 4.6c.4.4.4 1 0 1.4z"/>
+                <path d="m14.5 3.5 2 2"/>
+                <path d="m11.5 6.5 2 2"/>
+                <path d="m8.5 9.5 2 2"/>
+                <path d="m5.5 12.5 2 2"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#030213] text-sm mb-1" data-i18n="clearance_title">
+                Small-Space Clearance &amp; Ergonomics Golden Rule
+              </h4>
+              <p id="result-clearance-rule" class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                Maintain minimum 85 cm (33 in) primary walkways between low credenzas. In micro-studios (20–30 m²), keep floor coverage under 55% using floating wall-hung storage to prevent optical overcrowding.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRIMARY CONVERSION CTA & SHARE BUTTON DIRECTLY UNDERNEATH -->
+        <div class="space-y-3 pt-2">
+          <!-- 1. Primary Conversion CTA -->
+          <a id="result-app-cta" 
+             href="https://homeplannerapp.com/?utm_source=style_quiz&utm_medium=lead_magnet&utm_campaign=interior_style_quiz_2026&utm_content=primary_result_cta" 
+             target="_blank" rel="noopener noreferrer"
+             class="w-full py-4 px-6 rounded-full bg-[#030213] hover:bg-black text-white font-bold text-center text-sm sm:text-base shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform active:scale-[0.98] flex items-center justify-center gap-2.5">
+            <span data-i18n="cta_button">Apply This Direction in Home Planner 3D (Free)</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+
+          <!-- 2. Direct 9:16 Story Card Download Button -->
+          <button id="btn-quick-download" 
+                  type="button"
+                  class="w-full py-3.5 px-6 rounded-full bg-stone-100 hover:bg-stone-200 text-[#030213] font-bold text-center text-sm sm:text-base border border-stone-300 hover:border-black transition-all shadow-xs flex items-center justify-center gap-2.5 cursor-pointer">
+            <svg class="w-4 h-4 text-[#030213]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span data-i18n="btn_download_story">Скачать карточку для Stories (9:16)</span>
+          </button>
+
+          <!-- 3. Share Button -->
+          <button id="btn-open-share" 
+                  type="button"
+                  class="w-full py-3.5 px-6 rounded-full bg-white hover:bg-gray-50 text-gray-900 font-bold text-center text-sm sm:text-base border-2 border-gray-200 hover:border-gray-900 transition-all shadow-xs flex items-center justify-center gap-2.5 cursor-pointer">
+            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+            <span data-i18n="btn_share">Share My Result</span>
+          </button>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- SHARE DIALOG MODAL (TELEGRAM, WHATSAPP, PINTEREST, SAVE CARD) -->
+  <div id="share-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl transform scale-95 transition-transform duration-200">
+      <div class="flex items-center justify-between mb-3">
+        <h4 class="font-extrabold text-base sm:text-lg text-[#030213]" data-i18n="share_modal_title">Share Your Style Result</h4>
+        <button id="btn-close-share" type="button" class="text-gray-400 hover:text-black p-1 text-xl leading-none cursor-pointer">&times;</button>
+      </div>
+
+      <p class="text-xs text-gray-500 mb-5 leading-relaxed" data-i18n="share_modal_desc">
+        Share your design direction, space personality, and HEX swatches with friends or your contractor:
+      </p>
+
+      <!-- Action Grid: Telegram, WhatsApp, Pinterest, Save Card -->
+      <div class="grid grid-cols-2 gap-2.5 mb-5 text-xs font-bold">
+        <!-- 1. Telegram -->
+        <a id="share-telegram" href="#" target="_blank" rel="noopener noreferrer" 
+           class="p-3.5 rounded-2xl bg-white hover:bg-stone-50 text-[#030213] border-2 border-stone-200 hover:border-black flex items-center justify-center gap-2 transition shadow-xs font-bold cursor-pointer">
+          <svg class="w-4 h-4 fill-current text-[#030213]" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.963z"/></svg>
+          <span>Telegram</span>
+        </a>
+
+        <!-- 2. WhatsApp -->
+        <a id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" 
+           class="p-3.5 rounded-2xl bg-white hover:bg-stone-50 text-[#030213] border-2 border-stone-200 hover:border-black flex items-center justify-center gap-2 transition shadow-xs font-bold cursor-pointer">
+          <svg class="w-4 h-4 fill-current text-[#030213]" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- 3. Pinterest -->
+        <a id="share-pinterest" href="#" target="_blank" rel="noopener noreferrer" 
+           class="p-3.5 rounded-2xl bg-white hover:bg-stone-50 text-[#030213] border-2 border-stone-200 hover:border-black flex items-center justify-center gap-2 transition shadow-xs font-bold cursor-pointer">
+          <svg class="w-4 h-4 fill-current text-[#030213]" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.241-.189.292-.437.176-1.634-.761-2.656-3.151-2.656-5.072 0-4.13 3.001-7.925 8.656-7.925 4.543 0 8.077 3.238 8.077 7.568 0 4.515-2.846 8.149-6.797 8.149-1.328 0-2.576-.69-3.004-1.506l-.818 3.121c-.296 1.141-1.099 2.571-1.637 3.444 1.197.37 2.477.571 3.805.571 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+          <span>Pinterest</span>
+        </a>
+
+        <!-- 4. Instagram Stories -->
+        <button id="share-instagram" type="button" 
+                class="p-3.5 rounded-2xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-95 text-white flex items-center justify-center gap-2 transition shadow-xs cursor-pointer font-bold">
+          <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span data-i18n="share_instagram">Instagram</span>
+        </button>
+      </div>
+
+      <!-- Copy Direct Link Field -->
+      <div class="relative">
+        <input id="share-url-input" type="text" readonly 
+               class="w-full text-xs bg-gray-100 border border-gray-200 rounded-xl py-2.5 pl-3 pr-20 text-gray-600 focus:outline-none">
+        <button id="btn-copy-share-url" type="button" 
+                class="absolute right-1 top-1 bottom-1 px-3 bg-[#030213] text-white rounded-lg text-xs font-semibold hover:bg-black transition cursor-pointer"
+                data-i18n="btn_copy">
+          Copy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#030213] text-white text-xs font-semibold py-2.5 px-4 rounded-xl shadow-2xl opacity-0 pointer-events-none transform translate-y-3 flex items-center gap-2">
+    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <!-- OFFICIAL FOOTER (UPDATED PER USER SPECIFICATION: Room Planner Ltd & Address) -->
+  <footer class="w-full border-t border-gray-200 bg-white py-6 text-center text-xs text-gray-500">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-left">
+        <div class="font-semibold text-gray-800">
+          Room Planner Ltd &copy; 2023 &ndash; 2026
+        </div>
+        <div class="text-[11px] text-gray-400 mt-0.5">
+          Digeni Akrita 54, AKRITAS BUILDING, Nicosia 1061, Cyprus
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-4 text-[11px] font-medium text-gray-500">
+        <a href="https://homeplannerapp.com" target="_blank" rel="noopener noreferrer" class="hover:text-black transition">Home Planner Official</a>
+        <a href="https://medium.com/@homeplanner" target="_blank" rel="noopener noreferrer" class="hover:text-black transition">Medium Articles</a>
+        <a href="https://www.pinterest.com/homeplannerapp/" target="_blank" rel="noopener noreferrer" class="hover:text-black transition">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT APPLICATION CODE                -->
+  <!-- ========================================== -->
+  <script>
+    // --- 1. MULTILINGUAL DICTIONARY (20 LANGUAGES) ---
+    const I18N = {
+  "en": {
+    "tagline": "3D Interior & Floor Plan AI",
+    "download_app": "Download App",
+    "intro_script": "Find your design direction",
+    "intro_title": "What Is Your True Interior Design Style?",
+    "intro_desc": "Compare studio seating silhouettes, material moodboards, and ambient lighting in 60 seconds. Discover your architectural direction, space personality, and curated HEX paint palette.",
+    "intro_stat1": "Visual Test",
+    "intro_stat2_val": "Aesthetics",
+    "intro_stat2": "Directions & Sub-Styles",
+    "intro_stat3": "Click to Copy",
+    "btn_start": "Start Quiz",
+    "intro_privacy": "Free • No sign-up or email required • 100% private",
+    "btn_back": "Back",
+    "tap_hint": "Tap an option to select",
+    "step_instant": "Instant 1-tap advance",
+    "result_badge": "Your Design Match",
+    "result_header_subtitle": "Your Core Interior Aesthetic Is:",
+    "substyles_label": "Styles in this direction:",
+    "profile_title": "Your Space Personality: How You Truly Live",
+    "profile_recharge_label": "What Recharges You:",
+    "profile_flaw_label": "What Drains Your Energy:",
+    "profile_superpower_label": "Your Design Superpower:",
+    "swatches_title": "Signature 5-Color HEX Paint Palette",
+    "swatches_subtitle": "Click any color swatch to copy the HEX code to your clipboard",
+    "clearance_title": "Small-Space Clearance & Ergonomics Golden Rule",
+    "cta_button": "Apply This Style in Home Planner 3D (Free)",
+    "download_ios": "Download for iOS",
+    "download_android": "Download for Android",
+    "btn_retake": "Retake Quiz",
+    "link_medium": "Read Medium Guide",
+    "link_pinterest": "Pinterest Boards",
+    "btn_share": "Share My Result",
+    "share_modal_title": "Share Your Style Result",
+    "share_modal_desc": "Share your design direction, space personality, and HEX swatches with friends or your contractor:",
+    "btn_copy": "Copy Link",
+    "copied_toast": "Result link copied to clipboard!",
+    "btn_next": "Next",
+    "share_instagram": "Instagram",
+    "toast_saved": "Style card saved to your device!",
+    "toast_insta": "Image saved! Open Instagram and post to Stories"
+  },
+  "ru": {
+    "tagline": "3D-интерьеры и планировки с AI",
+    "download_app": "Скачать приложение",
+    "intro_script": "Найдите свой интерьерный стиль",
+    "intro_title": "Какой стиль интерьера подходит вам на самом деле?",
+    "intro_desc": "Сравните силуэты диванов, мудборды материалов и вечерний свет за 60 секунд. Узнайте своё дизайн-направление, психологический портрет дома и палитру HEX-красок.",
+    "intro_stat1": "Визуальный тест",
+    "intro_stat2_val": "Эстетика",
+    "intro_stat2": "Направления и стили",
+    "intro_stat3": "Копирование в клик",
+    "btn_start": "Начать тест",
+    "intro_privacy": "Бесплатно • Без регистрации и почты • Конфиденциально",
+    "btn_back": "Назад",
+    "tap_hint": "Нажмите на карточку для выбора",
+    "step_instant": "Мгновенный переход",
+    "result_badge": "Ваш интерьерный стиль",
+    "result_header_subtitle": "Ваше ключевое эстетическое направление:",
+    "substyles_label": "Стили этого направления",
+    "profile_title": "Психологический портрет: как вы живёте в своём доме",
+    "profile_recharge_label": "Что вас наполняет энергией:",
+    "profile_flaw_label": "Что выбивает вас из колеи:",
+    "profile_superpower_label": "Ваша интерьерная суперсила:",
+    "swatches_title": "Фирменная палитра из 5 оттенков краски (HEX)",
+    "swatches_subtitle": "Нажмите на любой свотч, чтобы скопировать HEX-код для магазина красок",
+    "clearance_title": "Золотое правило эргономики и проходов для компактных комнат",
+    "cta_button": "Примерить этот стиль в 3D (Бесплатно)",
+    "download_ios": "Скачать для iOS",
+    "download_android": "Скачать для Android",
+    "btn_retake": "Пройти тест заново",
+    "link_medium": "Гайд на Medium",
+    "link_pinterest": "Доски в Pinterest",
+    "btn_share": "Поделиться результатом",
+    "share_modal_title": "Поделиться результатом теста",
+    "share_modal_desc": "Отправьте ссылку на ваше дизайн-направление, психологический портрет и палитру друзьям или дизайнеру:",
+    "btn_copy": "Копировать",
+    "copied_toast": "Ссылка скопирована в буфер обмена!",
+    "btn_next": "Далее",
+    "share_instagram": "Инстаграм",
+    "toast_saved": "Карточка стиля сохранена на устройство!",
+    "toast_insta": "Картинка сохранена! Откройте Instagram и добавьте в Stories"
+  },
+  "es": {
+    "tagline": "Diseño de Interiores 3D y Planos con IA",
+    "download_app": "Descargar App",
+    "intro_script": "Descubre tu estilo de hogar",
+    "intro_title": "¿Cuál es tu verdadero estilo de decoración?",
+    "intro_desc": "Compara siluetas de sofás, moodboards de materiales e iluminación en 60 segundos. Descubre tu dirección estética, la personalidad de tu hogar y tu paleta HEX.",
+    "intro_stat1": "Test visual",
+    "intro_stat2_val": "Estética",
+    "intro_stat2": "Estilos y tendencias",
+    "intro_stat3": "Copiar con 1 clic",
+    "btn_start": "Hacer el test",
+    "intro_privacy": "Gratis • Sin registro ni email • 100% privado",
+    "btn_back": "Volver",
+    "tap_hint": "Toca una opción para elegir",
+    "step_instant": "Pasa al siguiente con 1 toque",
+    "result_badge": "Tu estilo ideal",
+    "result_header_subtitle": "Tu dirección estética principal es:",
+    "substyles_label": "Estilos de esta categoría:",
+    "profile_title": "La personalidad de tu hogar: cómo vives tu espacio",
+    "profile_recharge_label": "Lo que te recarga de energía:",
+    "profile_flaw_label": "Lo que te satura o estresa:",
+    "profile_superpower_label": "Tu superpoder de diseño:",
+    "swatches_title": "Paleta de pintura de 5 tonos (Códigos HEX)",
+    "swatches_subtitle": "Toca cualquier color para copiar el código HEX",
+    "clearance_title": "Regla de oro de ergonomía y pasos libres en espacios pequeños",
+    "cta_button": "Probar este estilo en Home Planner 3D (Gratis)",
+    "download_ios": "Descargar para iOS",
+    "download_android": "Descargar para Android",
+    "btn_retake": "Repetir test",
+    "link_medium": "Guía en Medium",
+    "link_pinterest": "Tableros en Pinterest",
+    "btn_share": "Compartir resultado",
+    "share_modal_title": "Comparte tu estilo de decoración",
+    "share_modal_desc": "Comparte tu estilo, personalidad de espacio y paleta de colores con amigos o tu decorador:",
+    "btn_copy": "Copiar enlace",
+    "copied_toast": "¡Enlace copiado al portapapeles!",
+    "btn_next": "Siguiente",
+    "share_instagram": "Instagram",
+    "toast_saved": "¡Tarjeta de estilo guardada en tu dispositivo!",
+    "toast_insta": "¡Imagen guardada! Abre Instagram y súbela a Stories"
+  },
+  "de": {
+    "tagline": "3D-Innenarchitektur & Grundrisse mit KI",
+    "download_app": "App herunterladen",
+    "intro_script": "Finde deinen persönlichen Wohnstil",
+    "intro_title": "Welcher Einrichtungsstil passt wirklich zu dir?",
+    "intro_desc": "Vergleiche Sofasilhouetten, Material-Moodboards und Lichtstimmungen in 60 Sekunden. Entdecke deine Design-Richtung, dein Wohnprofil und passende HEX-Farbcodes.",
+    "intro_stat1": "Visueller Test",
+    "intro_stat2_val": "Ästhetik",
+    "intro_stat2": "Stile & Trends",
+    "intro_stat3": "Klick zum Kopieren",
+    "btn_start": "Test starten",
+    "intro_privacy": "Kostenlos • Ohne Registrierung • 100% anonym",
+    "btn_back": "Zurück",
+    "tap_hint": "Tippe auf eine Karte zur Auswahl",
+    "step_instant": "Direkt weiter mit 1 Klick",
+    "result_badge": "Dein Wohnstil-Ergebnis",
+    "result_header_subtitle": "Deine wichtigste Einrichtungsrichtung ist:",
+    "substyles_label": "Stile dieser Richtung:",
+    "profile_title": "Deine Wohn-Persönlichkeit: So lebst du wirklich",
+    "profile_recharge_label": "Was dir Energie schenkt:",
+    "profile_flaw_label": "Was dich stresst und Energie raubt:",
+    "profile_superpower_label": "Deine Design-Superkraft:",
+    "swatches_title": "Deine 5-Farben-Wandfarben-Palette (HEX-Codes)",
+    "swatches_subtitle": "Klicke auf eine Farbe, um den HEX-Farbcode in die Zwischenablage zu kopieren",
+    "clearance_title": "Goldene Ergonomie-Regel für kompakte Räume",
+    "cta_button": "Stil jetzt in Home Planner 3D ausprobieren (Gratis)",
+    "download_ios": "Für iOS laden",
+    "download_android": "Für Android laden",
+    "btn_retake": "Test wiederholen",
+    "link_medium": "Ratgeber auf Medium",
+    "link_pinterest": "Pinterest-Pinnwände",
+    "btn_share": "Ergebnis teilen",
+    "share_modal_title": "Teile deinen Einrichtungsstil",
+    "share_modal_desc": "Teile deine Design-Richtung, dein Wohnprofil und deine Farbpalette mit Freunden oder Handwerkern:",
+    "btn_copy": "Link kopieren",
+    "copied_toast": "Link in die Zwischenablage kopiert!",
+    "btn_next": "Weiter",
+    "share_instagram": "Instagram",
+    "toast_saved": "Stilkarte auf Ihrem Gerät gespeichert!",
+    "toast_insta": "Bild gespeichert! Öffnen Sie Instagram und posten Sie in Stories"
+  },
+  "fr": {
+    "tagline": "Architecture d'Intérieur 3D & Plans par IA",
+    "download_app": "Télécharger l'App",
+    "intro_script": "Trouvez votre style déco",
+    "intro_title": "Quel style d'intérieur est vraiment fait pour vous ?",
+    "intro_desc": "Comparez silhouettes de canapés, planches de matières et ambiances lumineuses en 60 secondes. Révélez votre esthétique, votre tempérament déco et votre nuancier HEX.",
+    "intro_stat1": "Test visuel",
+    "intro_stat2_val": "Esthétique",
+    "intro_stat2": "Styles & Tendances",
+    "intro_stat3": "Copier en 1 clic",
+    "btn_start": "Faire le test",
+    "intro_privacy": "Gratuit • Sans inscription ni email • 100 % anonyme",
+    "btn_back": "Retour",
+    "tap_hint": "Touchez une option pour choisir",
+    "step_instant": "Passage direct en 1 clic",
+    "result_badge": "Votre Profil Déco",
+    "result_header_subtitle": "Votre univers de décoration dominant est :",
+    "substyles_label": "Styles de cette catégorie :",
+    "profile_title": "Personnalité de votre intérieur : votre vraie façon d'habiter",
+    "profile_recharge_label": "Ce qui vous ressource :",
+    "profile_flaw_label": "Ce qui vous épuise visuellement :",
+    "profile_superpower_label": "Votre super-pouvoir déco :",
+    "swatches_title": "Palette signature de 5 teintes murales (Codes HEX)",
+    "swatches_subtitle": "Cliquez sur une couleur pour copier son code HEX pour le peintre",
+    "clearance_title": "Règle d'or de circulation et d'ergonomie pour petits espaces",
+    "cta_button": "Recréer ce style dans Home Planner 3D (Gratuit)",
+    "download_ios": "Télécharger sur iOS",
+    "download_android": "Télécharger sur Android",
+    "btn_retake": "Recommencer le test",
+    "link_medium": "Guide sur Medium",
+    "link_pinterest": "Tableaux Pinterest",
+    "btn_share": "Partager mon résultat",
+    "share_modal_title": "Partagez votre univers déco",
+    "share_modal_desc": "Partagez votre style, votre profil d'espace et vos teintes avec vos proches ou votre architecte :",
+    "btn_copy": "Copier le lien",
+    "copied_toast": "Lien copié dans le presse-papiers !",
+    "btn_next": "Suivant",
+    "share_instagram": "Instagram",
+    "toast_saved": "Carte de style enregistrée sur votre appareil !",
+    "toast_insta": "Image enregistrée ! Ouvrez Instagram et publiez en Stories"
+  },
+  "it": {
+    "tagline": "Interior Design 3D e Planimetrie con IA",
+    "download_app": "Scarica l'App",
+    "intro_script": "Trova la tua atmosfera di casa",
+    "intro_title": "Qual è il tuo vero stile di arredamento?",
+    "intro_desc": "Confronta silhouette di divani, moodboard di materiali e luci calde in 60 secondi. Scopri la tua direzione di stile, come vivi gli spazi e la tua palette HEX.",
+    "intro_stat1": "Test visivo",
+    "intro_stat2_val": "Estetica",
+    "intro_stat2": "Stili e Tendenze",
+    "intro_stat3": "Copia con 1 clic",
+    "btn_start": "Fai il test",
+    "intro_privacy": "Gratis • Nessuna registrazione • 100% anonimo",
+    "btn_back": "Indietro",
+    "tap_hint": "Tocca una scheda per selezionare",
+    "step_instant": "Avanzamento con 1 tocco",
+    "result_badge": "Il tuo Stile Ideale",
+    "result_header_subtitle": "La tua direzione di arredo principale è:",
+    "substyles_label": "Stili di questa categoria:",
+    "profile_title": "La personalità del tuo spazio: come vivi davvero la tua casa",
+    "profile_recharge_label": "Ciò che ti ricarica:",
+    "profile_flaw_label": "Ciò che ti toglie serenità:",
+    "profile_superpower_label": "Il tuo talento di stile:",
+    "swatches_title": "Palette di 5 colori d'arredo (Codici HEX)",
+    "swatches_subtitle": "Clicca su qualsiasi colore per copiare il codice HEX per il colorificio",
+    "clearance_title": "Regola d'oro per l'ergonomia e i passaggi nei piccoli spazi",
+    "cta_button": "Prova questo stile su Home Planner 3D (Gratis)",
+    "download_ios": "Scarica per iOS",
+    "download_android": "Scarica per Android",
+    "btn_retake": "Rifai il test",
+    "link_medium": "Guida su Medium",
+    "link_pinterest": "Bacheche Pinterest",
+    "btn_share": "Condividi il risultato",
+    "share_modal_title": "Condividi il tuo stile d'arredo",
+    "share_modal_desc": "Condividi la tua direzione estetica, il tuo profilo e la palette con amici o il tuo architetto:",
+    "btn_copy": "Copia link",
+    "copied_toast": "Link copiato negli appunti!",
+    "btn_next": "Avanti",
+    "share_instagram": "Instagram",
+    "toast_saved": "Scheda di stile salvata sul tuo dispositivo!",
+    "toast_insta": "Immagine salvata! Apri Instagram e pubblica nelle Stories"
+  },
+  "pt": {
+    "tagline": "Design de Interiores 3D e Plantas com IA",
+    "download_app": "Baixar App",
+    "intro_script": "Encontre o seu estilo de casa",
+    "intro_title": "Qual é o seu verdadeiro estilo de decoração?",
+    "intro_desc": "Compare silhuetas de sofás, moodboards de materiais e iluminação em 60 segundos. Descubra sua direção estética, a personalidade do seu lar e sua paleta HEX.",
+    "intro_stat1": "Teste visual",
+    "intro_stat2_val": "Estética",
+    "intro_stat2": "Estilos e Tendências",
+    "intro_stat3": "Copiar em 1 clique",
+    "btn_start": "Fazer o teste",
+    "intro_privacy": "Grátis • Sem cadastro nem e-mail • 100% privado",
+    "btn_back": "Voltar",
+    "tap_hint": "Toque para escolher",
+    "step_instant": "Avanço com 1 toque",
+    "result_badge": "Seu Estilo Ideal",
+    "result_header_subtitle": "Sua direção estética dominante é:",
+    "substyles_label": "Estilos desta categoria:",
+    "profile_title": "A personalidade do seu espaço: como você realmente vive",
+    "profile_recharge_label": "O que recarrega suas energias:",
+    "profile_flaw_label": "O que drena sua energia:",
+    "profile_superpower_label": "Seu superpoder de estilo:",
+    "swatches_title": "Paleta exclusiva de 5 tintas (Códigos HEX)",
+    "swatches_subtitle": "Clique em qualquer cor para copiar o código HEX para o pintor",
+    "clearance_title": "Regra de ouro de circulação e ergonomia para ambientes compactos",
+    "cta_button": "Aplicar este estilo no Home Planner 3D (Grátis)",
+    "download_ios": "Baixar para iOS",
+    "download_android": "Baixar para Android",
+    "btn_retake": "Repetir teste",
+    "link_medium": "Guia no Medium",
+    "link_pinterest": "Painéis no Pinterest",
+    "btn_share": "Compartilhar resultado",
+    "share_modal_title": "Compartilhe seu resultado",
+    "share_modal_desc": "Compartilhe seu estilo, perfil de ambiente e paleta de cores com amigos ou seu arquiteto:",
+    "btn_copy": "Copiar link",
+    "copied_toast": "Link copiado para a área de transferência!",
+    "btn_next": "Avançar",
+    "share_instagram": "Instagram",
+    "toast_saved": "Cartão de estilo salvo no seu dispositivo!",
+    "toast_insta": "Imagem salva! Abra o Instagram e poste nos Stories"
+  },
+  "tr": {
+    "tagline": "Yapay Zeka Destekli 3D İç Mimarlık ve Kat Planı",
+    "download_app": "Uygulamayı İndir",
+    "intro_script": "Evinde kendi tarzını keşfet",
+    "intro_title": "Senin gerçek dekorasyon tarzın hangisi?",
+    "intro_desc": "Koltuk silüetlerini, malzeme panolarını ve akşam ışıklarını 60 saniyede karşılaştır. Estetik yönünü, yaşam alanı kişiliğini ve HEX boya paletini keşfet.",
+    "intro_stat1": "Görsel Test",
+    "intro_stat2_val": "Estetik",
+    "intro_stat2": "Tarzlar ve Yönler",
+    "intro_stat3": "Tek Tıkla Kopyala",
+    "btn_start": "Teste Başla",
+    "intro_privacy": "Ücretsiz • Kayıt veya e-posta gerekmez • Gizli",
+    "btn_back": "Geri",
+    "tap_hint": "Seçmek için karta dokun",
+    "step_instant": "Tek tıkla otomatik geçiş",
+    "result_badge": "Tarz Analizi Tamamlandı",
+    "result_header_subtitle": "Senin ana dekorasyon tarzın:",
+    "substyles_label": "Bu yönün tarzları:",
+    "profile_title": "Mekan Kişiliğin: Evinde gerçekten nasıl yaşıyorsun?",
+    "profile_recharge_label": "Sana huzur ve enerji verenler:",
+    "profile_flaw_label": "Seni yoran ve enerjini tüketenler:",
+    "profile_superpower_label": "Senin dekorasyon süper gücün:",
+    "swatches_title": "İmzalı 5 Renkli Duvar Boyası Paleti (HEX)",
+    "swatches_subtitle": "Boya ustasına vermek üzere HEX kodunu kopyalamak için renge tıkla",
+    "clearance_title": "Küçük evler için altın ergonomi ve geçiş kuralı",
+    "cta_button": "Bu tarzı Home Planner 3D'de dene (Ücretsiz)",
+    "download_ios": "iOS için İndir",
+    "download_android": "Android için İndir",
+    "btn_retake": "Testi Baştan Çöz",
+    "link_medium": "Medium Rehberi",
+    "link_pinterest": "Pinterest Panoları",
+    "btn_share": "Sonucu Paylaş",
+    "share_modal_title": "Dekorasyon Tarzını Paylaş",
+    "share_modal_desc": "Dekorasyon yönünü, mekan kişiliğini ve boya kodlarını arkadaşlarınla veya mimarınla paylaş:",
+    "btn_copy": "Kopyala",
+    "copied_toast": "Bağlantı panoya kopyalandı!",
+    "btn_next": "İleri",
+    "share_instagram": "Instagram",
+    "toast_saved": "Stil kartı cihazınıza kaydedildi!",
+    "toast_insta": "Görsel kaydedildi! Instagram açıp Hikayelerde paylaşabilirsiniz"
+  },
+  "pl": {
+    "tagline": "Projektowanie Wnętrz 3D i Rzuty z AI",
+    "download_app": "Pobierz Aplikację",
+    "intro_script": "Odkryj swój styl wnętrza",
+    "intro_title": "Jaki styl wnętrzarski do Ciebie pasuje?",
+    "intro_desc": "Porównaj bryły sof, moodboardy materiałowe i nastrojowe oświetlenie w 60 sekund. Poznaj swój dominujący kierunek, profil przestrzeni i paletę farb HEX.",
+    "intro_stat1": "Test wizualny",
+    "intro_stat2_val": "Estetyka",
+    "intro_stat2": "Style i trendy",
+    "intro_stat3": "Kopiuj 1 kliknięciem",
+    "btn_start": "Rozpocznij test",
+    "intro_privacy": "Bezpłatnie • Bez logowania i e-maila • 100% prywatnie",
+    "btn_back": "Wstecz",
+    "tap_hint": "Dotknij, aby wybrać",
+    "step_instant": "Płynne przejście 1 kliknięciem",
+    "result_badge": "Twój Profil Wnętrza",
+    "result_header_subtitle": "Twój dominujący styl aranżacji to:",
+    "substyles_label": "Style w tym kierunku:",
+    "profile_title": "Osobowość Twojej przestrzeni: jak naprawdę mieszkasz",
+    "profile_recharge_label": "Co dodaje Ci energii:",
+    "profile_flaw_label": "Co Cię przytłacza i męczy:",
+    "profile_superpower_label": "Twój talent aranżacyjny:",
+    "swatches_title": "Firmowa paleta 5 kolorów farb (Kody HEX)",
+    "swatches_subtitle": "Kliknij dowolny próbnik, aby skopiować kod HEX farby",
+    "clearance_title": "Złota zasada ergonomii i ciągów komunikacyjnych dla małych wnętrz",
+    "cta_button": "Wypróbuj ten styl w Home Planner 3D (Bezpłatnie)",
+    "download_ios": "Pobierz na iOS",
+    "download_android": "Pobierz na Androida",
+    "btn_retake": "Rozwiąż test ponownie",
+    "link_medium": "Poradnik na Medium",
+    "link_pinterest": "Tablice na Pinterest",
+    "btn_share": "Udostępnij wynik",
+    "share_modal_title": "Podziel się swoim stylem wnętrza",
+    "share_modal_desc": "Wyślij swój styl, profil przestrzeni i kody kolorów znajomym lub architektowi:",
+    "btn_copy": "Kopiuj link",
+    "copied_toast": "Link skopiowany do schowka!",
+    "btn_next": "Dalej",
+    "share_instagram": "Instagram",
+    "toast_saved": "Karta stylu została zapisana na urządzeniu!",
+    "toast_insta": "Obraz zapisany! Otwórz Instagram i udostępnij w Stories"
+  },
+  "nl": {
+    "tagline": "3D Interieurontwerp & Plattegronden met AI",
+    "download_app": "Download App",
+    "intro_script": "Vind jouw interieurstijl",
+    "intro_title": "Wat is jouw echte woonstijl?",
+    "intro_desc": "Vergelijk banken, materiaal-moodboards en avondverlichting in 60 seconden. Ontdek je stijlrichting, woonpersoonlijkheid en HEX-verfpalet.",
+    "intro_stat1": "Visuele test",
+    "intro_stat2_val": "Woonstijlen",
+    "intro_stat2": "Richtingen & Trends",
+    "intro_stat3": "Kopiëren met 1 klik",
+    "btn_start": "Start de test",
+    "intro_privacy": "Gratis • Geen registratie vereist • 100% anoniem",
+    "btn_back": "Terug",
+    "tap_hint": "Tik op een optie om te kiezen",
+    "step_instant": "Direct door met 1 tik",
+    "result_badge": "Jouw Woonstijl-Match",
+    "result_header_subtitle": "Jouw belangrijkste woonstijl is:",
+    "substyles_label": "Stijlen in deze richting:",
+    "profile_title": "Jouw woonpersoonlijkheid: zo woon en leef je echt",
+    "profile_recharge_label": "Wat je oplaadt met energie:",
+    "profile_flaw_label": "Wat je onrustig maakt:",
+    "profile_superpower_label": "Jouw interieurtalent:",
+    "swatches_title": "Karakteristiek 5-kleuren verfpalet (HEX-codes)",
+    "swatches_subtitle": "Klik op een kleur om de HEX-verfcode te kopiëren voor de verfwinkel",
+    "clearance_title": "Gouden regel voor loopruimte en ergonomie in compacte ruimtes",
+    "cta_button": "Probeer deze stijl in Home Planner 3D (Gratis)",
+    "download_ios": "Download voor iOS",
+    "download_android": "Download voor Android",
+    "btn_retake": "Test opnieuw doen",
+    "link_medium": "Gids op Medium",
+    "link_pinterest": "Borden op Pinterest",
+    "btn_share": "Deel resultaat",
+    "share_modal_title": "Deel jouw woonstijl",
+    "share_modal_desc": "Deel je woonstijl, interieurprofiel en kleurcodes met vrienden of je aannemer:",
+    "btn_copy": "Link kopiëren",
+    "copied_toast": "Link gekopieerd naar klembord!",
+    "btn_next": "Volgende",
+    "share_instagram": "Instagram",
+    "toast_saved": "Stijlkaart opgeslagen op je apparaat!",
+    "toast_insta": "Afbeelding opgeslagen! Open Instagram en deel in Stories"
+  },
+  "sv": {
+    "tagline": "3D-inredning & Planlösningar med AI",
+    "download_app": "Ladda ner appen",
+    "intro_script": "Hitta din inredningsstil",
+    "intro_title": "Vilken inredningsstil passar dig bäst?",
+    "intro_desc": "Jämför soffors silhuetter, material-moodboards och kvällsljus på 60 sekunder. Upptäck din stilriktning, din boendepersonlighet och din HEX-färgpalett.",
+    "intro_stat1": "Visuellt test",
+    "intro_stat2_val": "Estetik",
+    "intro_stat2": "Stilar & Trender",
+    "intro_stat3": "Kopiera med 1 klick",
+    "btn_start": "Starta testet",
+    "intro_privacy": "Gratis • Ingen registrering krävs • 100% privat",
+    "btn_back": "Tillbaka",
+    "tap_hint": "Tryck på ett kort för att välja",
+    "step_instant": "Går vidare med 1 klick",
+    "result_badge": "Din Inredningsmatch",
+    "result_header_subtitle": "Din huvudsakliga inredningsriktning är:",
+    "substyles_label": "Stilar i denna riktning:",
+    "profile_title": "Din boendepersonlighet: så lever du egentligen",
+    "profile_recharge_label": "Det som ger dig lugn och energi:",
+    "profile_flaw_label": "Det som stressar och dränerar dig:",
+    "profile_superpower_label": "Din inredningssuperkraft:",
+    "swatches_title": "Signaturfärgpalett med 5 toner (HEX-koder)",
+    "swatches_subtitle": "Klicka på en färg för att kopiera färgkoden till målaren",
+    "clearance_title": "Gyllene regel för passager och rumsytor i kompakta hem",
+    "cta_button": "Testa stilen i Home Planner 3D (Gratis)",
+    "download_ios": "Hämta för iOS",
+    "download_android": "Hämta för Android",
+    "btn_retake": "Gör om testet",
+    "link_medium": "Guide på Medium",
+    "link_pinterest": "Anslagstavlor på Pinterest",
+    "btn_share": "Dela mitt resultat",
+    "share_modal_title": "Dela din inredningsstil",
+    "share_modal_desc": "Dela din inredningsstil, din rumsprofil och dina färgkoder med vänner eller hantverkare:",
+    "btn_copy": "Kopiera länk",
+    "copied_toast": "Länken har kopierats till urklipp!",
+    "btn_next": "Nästa",
+    "share_instagram": "Instagram",
+    "toast_saved": "Stilkort sparat på din enhet!",
+    "toast_insta": "Bild sparad! Öppna Instagram och dela i Stories"
+  },
+  "uk": {
+    "tagline": "3D-інтер'єри та планування з AI",
+    "download_app": "Завантажити додаток",
+    "intro_script": "Знайдіть свій інтер'єрний стиль",
+    "intro_title": "Який стиль інтер'єру насправді ваш?",
+    "intro_desc": "Порівняйте силуети меблів, мудборди матеріалів та вечірнє світло за 60 секунд. Дізнайтеся своє естетичне спрямування, психологічний портрет простору та палітру фарб HEX.",
+    "intro_stat1": "Візуальний тест",
+    "intro_stat2_val": "Естетика",
+    "intro_stat2": "Напрями та стилі",
+    "intro_stat3": "Копіювання в клік",
+    "btn_start": "Почати тест",
+    "intro_privacy": "Безкоштовно • Без реєстрації та пошти • Приватно",
+    "btn_back": "Назад",
+    "tap_hint": "Торкніться картки для вибору",
+    "step_instant": "Миттєвий перехід",
+    "result_badge": "Ваш інтер'єрний стиль",
+    "result_header_subtitle": "Ваш ключовий інтер'єрний напрям:",
+    "substyles_label": "Стилі цього напрямку:",
+    "profile_title": "Психологічний портрет: як ви насправді живете у своєму домі",
+    "profile_recharge_label": "Що наповнює вас енергією:",
+    "profile_flaw_label": "Що вибиває вас із сил:",
+    "profile_superpower_label": "Ваша інтер'єрна суперсила:",
+    "swatches_title": "Фірмова палітра з 5 відтінків фарби (HEX)",
+    "swatches_subtitle": "Натисніть на будь-який колір, щоб скопіювати код фарби",
+    "clearance_title": "Золоте правило ергономіки та проходів для невеликих осель",
+    "cta_button": "Приміряти у 3D в Home Planner (Безкоштовно)",
+    "download_ios": "Завантажити для iOS",
+    "download_android": "Завантажити для Android",
+    "btn_retake": "Пройти тест знову",
+    "link_medium": "Гайд на Medium",
+    "link_pinterest": "Дошки в Pinterest",
+    "btn_share": "Поділитися результатом",
+    "share_modal_title": "Поділитися результатом тесту",
+    "share_modal_desc": "Надішліть посилання на ваш стиль, психологічний портрет оселі та палітру друзям або дизайнеру:",
+    "btn_copy": "Скопіювати",
+    "copied_toast": "Посилання скопійовано в буфер обміну!",
+    "btn_next": "Далі",
+    "share_instagram": "Instagram",
+    "toast_saved": "Картка стилю збережена на пристрій!",
+    "toast_insta": "Зображення збережено! Відкрийте Instagram та додайте в Stories"
+  },
+  "ja": {
+    "tagline": "AIで描く3Dインテリア＆間取りプラン",
+    "download_app": "アプリを入手",
+    "intro_script": "あなたらしい空間のテイストを見つける",
+    "intro_title": "あなたに本当に似合うインテリアスタイル診断",
+    "intro_desc": "ソファのシルエット、素材の質感、間接照明の雰囲気を直感で選ぶ60秒。空間の美意識、暮らしのパーソナリティ、厳選HEXカラーパレットがわかります。`",
+    "intro_stat1": "ビジュアル診断",
+    "intro_stat2_val": "美意識",
+    "intro_stat2": "スタイルと系統",
+    "intro_stat3": "ワンタップ保存",
+    "btn_start": "診断をはじめる",
+    "intro_privacy": "完全無料 • 登録・メルマガ不要 • 匿名診断",
+    "btn_back": "戻る",
+    "tap_hint": "タップして選択",
+    "step_instant": "ワンタップで自動進行",
+    "result_badge": "診断結果",
+    "result_header_subtitle": "あなたにぴったりのインテリアスタイルは：",
+    "substyles_label": "この系統のスタイル:",
+    "profile_title": "空間パーソナリティ：あなたの本当の暮らし方",
+    "profile_recharge_label": "心が満たされる瞬間:",
+    "profile_flaw_label": "ストレスを感じる要素:",
+    "profile_superpower_label": "あなたのデザインセンスの強み:",
+    "swatches_title": "インテリアを彩る厳選5色パレット（HEXコード）",
+    "swatches_subtitle": "カラーをタップするとHEXコードをクリップボードにコピーできます",
+    "clearance_title": "狭小空間を広く見せる黄金の動線・寸法ルール",
+    "cta_button": "Home Planner 3Dで部屋を作ってみる（無料）",
+    "download_ios": "iOS版をダウンロード",
+    "download_android": "Android版をダウンロード",
+    "btn_retake": "もう一度診断する",
+    "link_medium": "Medium公式ガイド",
+    "link_pinterest": "Pinterestボード",
+    "btn_share": "診断結果をシェア",
+    "share_modal_title": "インテリア診断結果をシェア",
+    "share_modal_desc": "あなたのインテリアスタイル、暮らしの特徴、HEXカラーコードをお友達や内装業者と共有:",
+    "btn_copy": "リンクをコピー",
+    "copied_toast": "リンクをクリップボードにコピーしました！",
+    "btn_next": "次へ",
+    "share_instagram": "Instagram",
+    "toast_saved": "スタイルカードをデバイスに保存しました！",
+    "toast_insta": "画像を保存しました！Instagramを開いてストーリーズに投稿してください"
+  },
+  "ko": {
+    "tagline": "AI 기반 3D 인테리어 및 룸 플래너",
+    "download_app": "앱 다운로드",
+    "intro_script": "나에게 딱 맞는 공간 무드 찾기",
+    "intro_title": "나에게 꼭 맞는 진정한 인테리어 스타일은?",
+    "intro_desc": "소파의 실루엣, 소재 무드보드, 조명 분위기를 60초 만에 직관적으로 비교해보세요. 나만의 인테리어 방향성과 공간 심리 프로필, 시그니처 HEX 컬러를 찾아드립니다.",
+    "intro_stat1": "비주얼 테스트",
+    "intro_stat2_val": "인테리어",
+    "intro_stat2": "스타일 및 무드",
+    "intro_stat3": "원클릭 복사",
+    "btn_start": "테스트 시작하기",
+    "intro_privacy": "무료 • 회원가입 없음 • 즉시 결과 확인",
+    "btn_back": "이전",
+    "tap_hint": "카드를 탭하여 선택",
+    "step_instant": "원탭 즉시 이동",
+    "result_badge": "스타일 진단 완료",
+    "result_header_subtitle": "당신을 위한 핵심 인테리어 스타일은:",
+    "substyles_label": "이 카테고리의 세부 스타일:",
+    "profile_title": "공간 페르소나: 당신이 집에서 진짜 살아가는 방식",
+    "profile_recharge_label": "온전한 휴식을 주는 요소:",
+    "profile_flaw_label": "무의식적으로 에너지를 뺏는 요소:",
+    "profile_superpower_label": "당신만의 인테리어 강점:",
+    "swatches_title": "공간을 완성하는 시그니처 5색 페인트 팔레트 (HEX)",
+    "swatches_subtitle": "색상 카드를 탭하면 페인트 매장에 보여줄 HEX 코드가 복사됩니다",
+    "clearance_title": "좁은 공간을 2배 넓게 쓰는 골든 동선 법칙",
+    "cta_button": "Home Planner 3D로 내 방 꾸며보기 (무료)",
+    "download_ios": "iOS 다운로드",
+    "download_android": "Android 다운로드",
+    "btn_retake": "테스트 다시 하기",
+    "link_medium": "Medium 가이드 읽기",
+    "link_pinterest": "Pinterest 보드 둘러보기",
+    "btn_share": "결과 공유하기",
+    "share_modal_title": "인테리어 스타일 결과 공유",
+    "share_modal_desc": "나의 스타일 방향성과 공간 페르소나, 페인트 컬러를 친구나 인테리어 시공사에 전달해보세요:",
+    "btn_copy": "링크 복사",
+    "copied_toast": "결과 링크가 클립보드에 복사되었습니다!",
+    "btn_next": "다음",
+    "share_instagram": "Instagram",
+    "toast_saved": "스타일 카드가 기기에 저장되었습니다!",
+    "toast_insta": "이미지가 저장되었습니다! 인스타그램을 열고 스토리에 공유해보세요"
+  },
+  "zh": {
+    "tagline": "AI 驱动的 3D 室内设计与户型规划",
+    "download_app": "免费下载 App",
+    "intro_script": "找到属于你的空间设计方向",
+    "intro_title": "哪种室内设计风格最契合你的生活？",
+    "intro_desc": "在 60 秒内通过沙发廓形、材质情绪板与氛围灯光直观对比，解锁你的核心美学风格、空间性格画像与专属 HEX 墙漆配色卡。",
+    "intro_stat1": "视觉测试",
+    "intro_stat2_val": "美学风格",
+    "intro_stat2": "核心方向与细分风格",
+    "intro_stat3": "一键复制配色",
+    "btn_start": "开始测试",
+    "intro_privacy": "免费免注册 • 无需邮箱 • 结果即时生成",
+    "btn_back": "返回上一步",
+    "tap_hint": "点击卡片即可选择",
+    "step_instant": "单选即刻自动进入下一题",
+    "result_badge": "测评结果已生成",
+    "result_header_subtitle": "最契合你的核心空间美学风格是：",
+    "substyles_label": "该系列设计风格：",
+    "profile_title": "空间性格画像：你最本真的生活状态",
+    "profile_recharge_label": "能让你瞬间充能的元素：",
+    "profile_flaw_label": "让你感到疲惫与焦虑的事物：",
+    "profile_superpower_label": "你的空间审美天赋：",
+    "swatches_title": "专属 5 色软装与墙漆配色卡 (HEX 色号)",
+    "swatches_subtitle": "点击任意色块即可复制 HEX 色号，方便软装与油漆调色",
+    "clearance_title": "小户型黄金动线与人体工学法则",
+    "cta_button": "在 Home Planner 3D 中一键套用此风格（免费）",
+    "download_ios": "前往 App Store 下载",
+    "download_android": "前往 Google Play 下载",
+    "btn_retake": "重新进行测试",
+    "link_medium": "阅读 Medium 深度设计指南",
+    "link_pinterest": "查看 Pinterest 灵感画板",
+    "btn_share": "分享我的风格测试结果",
+    "share_modal_title": "分享你的专属空间风格",
+    "share_modal_desc": "把你的设计风格、空间性格和专属色卡分享给朋友或装修设计师：",
+    "btn_copy": "复制分享链接",
+    "copied_toast": "测试结果链接已复制到剪贴板！",
+    "btn_next": "下一步",
+    "share_instagram": "Instagram",
+    "toast_saved": "风格卡片已保存至您的设备！",
+    "toast_insta": "图片已保存！打开 Instagram 即可分享至快拍"
+  },
+  "ar": {
+    "tagline": "تصميم داخلي ثلاثي الأبعاد ومخططات بالذكاء الاصطناعي",
+    "download_app": "تحميل التطبيق",
+    "intro_script": "اكتشف أسلوبك في الديكور الداخلي",
+    "intro_title": "ما هو طراز الديكور الأنسب لمنزلك وشخصيتك؟",
+    "intro_desc": "قارن بين أشكال الأثاث، وخامات المواد، والإضاءة خلال 60 ثانية. اكتشف اتجاهك الجمالي، وطبيعة مساحتك، ولوحة ألوان الدهانات المتناسقة.",
+    "intro_stat1": "اختبار مرئي",
+    "intro_stat2_val": "طرز الديكور",
+    "intro_stat2": "الاتجاهات والأنماط",
+    "intro_stat3": "نسخ الألوان بلمسة",
+    "btn_start": "ابدأ الاختبار",
+    "intro_privacy": "مجاني • بدون تسجيل • خصوصية تامة",
+    "btn_back": "رجوع",
+    "tap_hint": "اضغط على الخيار للاختيار",
+    "step_instant": "انتقال تلقائي بلمسة واحدة",
+    "result_badge": "اكتمل التحليل",
+    "result_header_subtitle": "طراز الديكور الأنسب لمساحتك هو:",
+    "substyles_label": "الأنماط ضمن هذا الاتجاه:",
+    "profile_title": "شخصية مساحتك: كيف تعيش وتسترخي في منزلك",
+    "profile_recharge_label": "ما يمنحك الطاقة والراحة:",
+    "profile_flaw_label": "ما يستنزف طاقتك وهدوءك:",
+    "profile_superpower_label": "ميزتك الجمالية الاستثنائية:",
+    "swatches_title": "لوحة دهانات متناسقة من 5 درجات (HEX)",
+    "swatches_subtitle": "اضغط على أي لون لنسخ الرمز واستخدامه لدى متجر الدهانات",
+    "clearance_title": "القاعدة الذهبية لمسافات الحركة في المساحات المحدودة",
+    "cta_button": "جرب هذا الاتجاه في Home Planner 3D (مجاناً)",
+    "download_ios": "تحميل لنظام iOS",
+    "download_android": "تحميل لنظام Android",
+    "btn_retake": "إعادة الاختبار",
+    "link_medium": "قراءة الدليل على Medium",
+    "link_pinterest": "لوحات Pinterest",
+    "btn_share": "مشاركة النتيجة",
+    "share_modal_title": "شارك طرازك المفضل",
+    "share_modal_desc": "شارك طرازك وأكواد الألوان مع أصدقائك أو مصمم الديكور:",
+    "btn_copy": "نسخ الرابط",
+    "copied_toast": "تم نسخ الرابط إلى الحافظة!",
+    "btn_next": "التالي",
+    "share_instagram": "Instagram",
+    "toast_saved": "تم حفظ بطاقة النمط على جهازك!",
+    "toast_insta": "تم حفظ الصورة! افتح إنستغرام وشاركها في القصص"
+  },
+  "hi": {
+    "tagline": "एआई-संचालित 3D इंटीरियर और फ्लोर प्लान डिज़ाइन",
+    "download_app": "ऐप डाउनलोड करें",
+    "intro_script": "अपनी मनपसंद इंटीरियर दिशा खोजें",
+    "intro_title": "आपके घर के लिए कौन सा इंटीरियर स्टाइल सबसे सही है?",
+    "intro_desc": "60 सेकंड में सोफे के आकार, मटीरियल मूडबोर्ड और लाइटिंग को परखें। अपनी डिज़ाइन दिशा, घर का व्यक्तित्व और पेंट के HEX कोड जानें।",
+    "intro_stat1": "विज़ुअल टेस्ट",
+    "intro_stat2_val": "डिज़ाइन शैलियाँ",
+    "intro_stat2": "दिशाएं और उप-शैलियां",
+    "intro_stat3": "एक क्लिक में कोड कॉपी",
+    "btn_start": "टेस्ट शुरू करें",
+    "intro_privacy": "मुफ़्त • कोई साइन-अप नहीं • 100% सुरक्षित",
+    "btn_back": "पीछे",
+    "tap_hint": "चुनने के लिए टैप करें",
+    "step_instant": "एक टैप में आगे बढ़ें",
+    "result_badge": "टेस्ट परिणाम तैयार",
+    "result_header_subtitle": "आपके लिए सबसे उपयुक्त इंटीरियर स्टाइल है:",
+    "substyles_label": "इस श्रेणी की शैलियाँ:",
+    "profile_title": "आपकी स्पेस पर्सनालिटी: आप असल में कैसे रहते हैं",
+    "profile_recharge_label": "आपको क्या सुकून और ऊर्जा देता है:",
+    "profile_flaw_label": "क्या चीज़ आपको परेशान करती है:",
+    "profile_superpower_label": "आपकी ख़ास डिज़ाइन क्षमता:",
+    "swatches_title": "5-कलर सिग्नेचर पेंट पैलेट (HEX कोड)",
+    "swatches_subtitle": "पेंटर को कोड देने के लिए किसी भी रंग पर क्लिक करें",
+    "clearance_title": "छोटे कमरों के लिए गोल्डन क्लीयरेंस और स्पेस नियम",
+    "cta_button": "Home Planner 3D में इसे आज़माएं (मुफ़्त)",
+    "download_ios": "iOS के लिए डाउनलोड करें",
+    "download_android": "Android के लिए डाउनलोड करें",
+    "btn_retake": "फिर से टेस्ट दें",
+    "link_medium": "Medium गाइड पढ़ें",
+    "link_pinterest": "Pinterest बोर्ड्स",
+    "btn_share": "परिणाम शेयर करें",
+    "share_modal_title": "अपना स्टाइल परिणाम शेयर करें",
+    "share_modal_desc": "अपनी डिज़ाइन दिशा और कलर कोड दोस्तों या पेंटर के साथ साझा करें:",
+    "btn_copy": "लिंक कॉपी करें",
+    "copied_toast": "लिंक क्लिपबोर्ड पर कॉपी हो गया!",
+    "btn_next": "आगे",
+    "share_instagram": "Instagram",
+    "toast_saved": "स्टाइल कार्ड आपके डिवाइस पर सहेजा गया!",
+    "toast_insta": "चित्र सहेजा गया! इंस्टाग्राम खोलें और स्टोरी में पोस्ट करें"
+  },
+  "id": {
+    "tagline": "Desain Interior 3D & Denah Rumah dengan AI",
+    "download_app": "Unduh Aplikasi",
+    "intro_script": "Temukan gaya dekorasi rumahmu",
+    "intro_title": "Apa gaya dekorasi interior yang paling cocok untukmu?",
+    "intro_desc": "Bandingkan siluet sofa, moodboard material, dan pencahayaan dalam 60 detik. Dapatkan arahan estetika, kepribadian ruang, dan palet cat HEX.",
+    "intro_stat1": "Tes Visual",
+    "intro_stat2_val": "Estetika",
+    "intro_stat2": "Gaya & Tren Ruang",
+    "intro_stat3": "Salin dengan 1 Klik",
+    "btn_start": "Mulai Tes",
+    "intro_privacy": "Gratis • Tanpa registrasi • 100% privat",
+    "btn_back": "Kembali",
+    "tap_hint": "Ketuk opsi untuk memilih",
+    "step_instant": "Otomatis lanjut dalam 1 ketukan",
+    "result_badge": "Hasil Analisis Gaya",
+    "result_header_subtitle": "Gaya interior utama yang paling cocok untukmu:",
+    "substyles_label": "Gaya dalam kategori ini:",
+    "profile_title": "Kepribadian Ruangmu: Cara kamu benar-benar hidup di rumah",
+    "profile_recharge_label": "Apa yang memulihkan energimu:",
+    "profile_flaw_label": "Apa yang membuatmu cepat lelah:",
+    "profile_superpower_label": "Kekuatan desainmu:",
+    "swatches_title": "Palet Cat 5 Warna Khas (Kode HEX)",
+    "swatches_subtitle": "Ketuk warna apa saja untuk menyalin kode HEX untuk tukang cat",
+    "clearance_title": "Aturan emas jarak sirkulasi untuk ruang mungil",
+    "cta_button": "Coba gaya ini di Home Planner 3D (Gratis)",
+    "download_ios": "Unduh untuk iOS",
+    "download_android": "Unduh untuk Android",
+    "btn_retake": "Ulangi Tes",
+    "link_medium": "Baca Panduan di Medium",
+    "link_pinterest": "Papan Inspirasi Pinterest",
+    "btn_share": "Bagikan Hasil",
+    "share_modal_title": "Bagikan Gaya Interiormu",
+    "share_modal_desc": "Bagikan arah gayamu dan kode warna dengan teman atau desainer:",
+    "btn_copy": "Salin Tautan",
+    "copied_toast": "Tautan disalin ke papan klip!",
+    "btn_next": "Lanjut",
+    "share_instagram": "Instagram",
+    "toast_saved": "Kartu gaya berhasil disimpan ke perangkat Anda!",
+    "toast_insta": "Gambar tersimpan! Buka Instagram dan bagikan ke Stories"
+  },
+  "vi": {
+    "tagline": "Thiết Kế Nội Thất 3D & Mặt Bằng Căn Hộ với AI",
+    "download_app": "Tải Ứng Dụng",
+    "intro_script": "Tìm phong cách tổ ấm của bạn",
+    "intro_title": "Phong cách nội thất nào thực sự thuộc về bạn?",
+    "intro_desc": "So sánh kiểu dáng ghế sofa, bảng chất liệu và ánh sáng trong 60 giây. Khám phá gu thẩm mỹ, chân dung không gian sống và bảng mã màu sơn HEX.",
+    "intro_stat1": "Kiểm tra trực quan",
+    "intro_stat2_val": "Thẩm mỹ",
+    "intro_stat2": "Phong cách & Xu hướng",
+    "intro_stat3": "Sao chép 1 chạm",
+    "btn_start": "Làm bài test",
+    "intro_privacy": "Miễn phí • Không cần tài khoản • 100% riêng tư",
+    "btn_back": "Quay lại",
+    "tap_hint": "Chạm vào thẻ để chọn",
+    "step_instant": "Tự động chuyển tiếp sau 1 chạm",
+    "result_badge": "Kết Quả Phong Cách",
+    "result_header_subtitle": "Phong cách nội thất chủ đạo dành cho bạn là:",
+    "substyles_label": "Các phong cách cùng hệ này:",
+    "profile_title": "Chân dung không gian: Cách bạn thực sự sống trong ngôi nhà",
+    "profile_recharge_label": "Điều giúp bạn tái tạo năng lượng:",
+    "profile_flaw_label": "Điều khiến bạn ngột ngạt và căng thẳng:",
+    "profile_superpower_label": "Năng khiếu thẩm mỹ của bạn:",
+    "swatches_title": "Bảng màu sơn 5 sắc thái đặc trưng (Mã HEX)",
+    "swatches_subtitle": "Nhấp vào ô màu để sao chép mã HEX cho thợ sơn hoặc kiến trúc sư",
+    "clearance_title": "Quy tắc vàng về khoảng cách đi lại cho phòng nhỏ",
+    "cta_button": "Thử nghiệm phong cách này trong Home Planner 3D (Miễn phí)",
+    "download_ios": "Tải cho iOS",
+    "download_android": "Tải cho Android",
+    "btn_retake": "Làm lại bài kiểm tra",
+    "link_medium": "Đọc cẩm nang trên Medium",
+    "link_pinterest": "Bảng Pinterest",
+    "btn_share": "Chia sẻ kết quả",
+    "share_modal_title": "Chia sẻ kết quả phong cách",
+    "share_modal_desc": "Chia sẻ phong cách, chân dung không gian và bảng màu với bạn bè hoặc thợ hoàn thiện:",
+    "btn_copy": "Sao chép liên kết",
+    "copied_toast": "Đã sao chép liên kết vào bộ nhớ tạm!",
+    "btn_next": "Tiếp theo",
+    "share_instagram": "Instagram",
+    "toast_saved": "Thẻ phong cách đã được lưu vào thiết bị của bạn!",
+    "toast_insta": "Đã lưu ảnh! Mở Instagram và đăng lên Tin"
+  },
+  "th": {
+    "tagline": "ออกแบบภายใน 3D และแปลนห้องด้วย AI",
+    "download_app": "ดาวน์โหลดแอป",
+    "intro_script": "ค้นหาสไตล์การแต่งบ้านที่เป็นคุณ",
+    "intro_title": "สไตล์แต่งบ้านแบบไหนที่ใช่ตัวตนของคุณที่สุด?",
+    "intro_desc": "เปรียบเทียบรูปทรงโซฟา มูดบอร์ดวัสดุ และแสงไฟใน 60 วินาที ค้นพบทิศทางความชอบ บุคลิกภาพการอยู่อาศัย และโค้ดสีทาบ้าน HEX เฉพาะตัว",
+    "intro_stat1": "ทดสอบด้วยภาพ",
+    "intro_stat2_val": "สุนทรียศาสตร์",
+    "intro_stat2": "สไตล์และแนวทาง",
+    "intro_stat3": "คัดลอกในคลิกเดียว",
+    "btn_start": "เริ่มทำแบบทดสอบ",
+    "intro_privacy": "ฟรี • ไม่ต้องลงทะเบียน • เป็นส่วนตัว 100%",
+    "btn_back": "ย้อนกลับ",
+    "tap_hint": "แตะที่การ์ดเพื่อเลือก",
+    "step_instant": "แตะปุ๊บเปลี่ยนหน้าปั๊บ",
+    "result_badge": "ผลการวิเคราะห์สไตล์",
+    "result_header_subtitle": "สไตล์การแต่งบ้านหลักที่ตอบโจทย์คุณคือ:",
+    "substyles_label": "สไตล์ในหมวดหมู่นี้:",
+    "profile_title": "บุคลิกภาพของพื้นที่: วิธีที่คุณใช้ชีวิตในบ้านอย่างแท้จริง",
+    "profile_recharge_label": "สิ่งที่ช่วยชาร์จพลังให้คุณ:",
+    "profile_flaw_label": "สิ่งที่ทำให้คุณรู้สึกอึดอัดเหนื่อยล้า:",
+    "profile_superpower_label": "พรสวรรค์ด้านการแต่งบ้านของคุณ:",
+    "swatches_title": "ชุดสีทาบ้านเอกลักษณ์ 5 เฉดสี (โค้ด HEX)",
+    "swatches_subtitle": "คลิกที่แถบสีเพื่อคัดลอกรหัส HEX ไปสั่งผสมสีที่ร้านได้ทันที",
+    "clearance_title": "กฎทองระยะทางเดินและสัดส่วนเฟอร์นิเจอร์สำหรับห้องกะทัดรัด",
+    "cta_button": "ลองแต่งห้องจริงใน Home Planner 3D (ฟรี)",
+    "download_ios": "ดาวน์โหลดสำหรับ iOS",
+    "download_android": "ดาวน์โหลดสำหรับ Android",
+    "btn_retake": "ทำแบบทดสอบใหม่",
+    "link_medium": "อ่านบทความบน Medium",
+    "link_pinterest": "บอร์ดแรงบันดาลใจบน Pinterest",
+    "btn_share": "แชร์ผลลัพธ์",
+    "share_modal_title": "แชร์ผลการวิเคราะห์สไตล์",
+    "share_modal_desc": "แชร์สไตล์ที่ชอบและโค้ดสีทาบ้านให้เพื่อนหรือมัณฑนากรของคุณ:",
+    "btn_copy": "คัดลอกลิงก์",
+    "copied_toast": "คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว!",
+    "btn_next": "ถัดไป",
+    "share_instagram": "Instagram",
+    "toast_saved": "บันทึกการ์ดสไตล์ลงในอุปกรณ์ของคุณแล้ว!",
+    "toast_insta": "บันทึกภาพแล้ว! เปิด Instagram แล้วแชร์ลงใน Stories ได้เลย"
+  }
+};
+
+    // --- 2. 6 CORE DESIGN DIRECTIONS (FAMILIES) WITH HUMANIZED PROFILES ---
+    const DIRECTIONS_DB = {
+  "warm_organic": {
+    "id": "warm_organic",
+    "name": {
+      "en": "Warm Organic & Serene",
+      "ru": "Тёплая органика и безмятежность"
+    },
+    "tagline": {
+      "en": "The art of natural silence, raw textures, and mindful negative space",
+      "ru": "Искусство визуальной тишины, честных фактур и свободного пространства"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Japandi",
+          "ru": "Джапанди"
+        },
+        "desc": {
+          "en": "Japanese minimalism meets Scandinavian warmth",
+          "ru": "Японский минимализм и скандинавское тепло"
+        },
+        "img": "https://images.unsplash.com/photo-1623903800664-a840b8be323b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Warm Minimalism",
+          "ru": "Тёплый минимализм"
+        },
+        "desc": {
+          "en": "Soft neutral tones, clean lines, zero clutter",
+          "ru": "Мягкие бежевые тона, чистые линии, ноль шума"
+        },
+        "img": "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Wabi-Sabi Zen",
+          "ru": "Ваби-саби дзен"
+        },
+        "desc": {
+          "en": "Rough stoneware, unlacquered wood, organic asymmetry",
+          "ru": "Шероховатая керамика, нелакированное дерево"
+        },
+        "img": "https://images.unsplash.com/photo-1683735669803-2cf67a3edda5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Nordic Organic",
+          "ru": "Органический сканди"
+        },
+        "desc": {
+          "en": "Curved boucle silhouettes and bleached light oak",
+          "ru": "Плавные формы букле и светлый выбеленный дуб"
+        },
+        "img": "https://plus.unsplash.com/premium_photo-1671269943771-63db2ab54bf2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_warm_organic.jpg",
+    "palette": [
+      {
+        "name": "Oatmeal Linen",
+        "hex": "#F4F0EA"
+      },
+      {
+        "name": "Bleached Birch",
+        "hex": "#D8CBB9"
+      },
+      {
+        "name": "Warm Greige",
+        "hex": "#8C8275"
+      },
+      {
+        "name": "Smoked Oak",
+        "hex": "#4A453E"
+      },
+      {
+        "name": "Tatami Sand",
+        "hex": "#B5A895"
+      }
+    ],
+    "recharge": {
+      "en": "Visual silence and physical rest. When room surfaces are uncluttered and lit with 2200K diffused paper lanterns, your brain finally stops processing background noise and switches into evening recovery.",
+      "ru": "Визуальная тишина и физический покой. Когда горизонтальные поверхности свободны от случайных вещей, а в комнате включён мягкий рассеянный свет в 2200K, ваша нервная система мгновенно переключается в режим вечернего отдыха."
+    },
+    "flaw": {
+      "en": "Visual clutter acts like twenty open browser tabs in your head. You physically cannot relax if there is a pile of unsorted mail on the dining table or shiny plastic items in plain view. You would rather leave an entire room corner empty for six months than buy a cheap placeholder piece.",
+      "ru": "Визуальный шум действует на вас как двадцать открытых вкладок в браузере. Вы физически не можете расслабиться, если на столе лежит гора чеков или в поле зрения мелькает дешёвый пластик. Вы скорее оставите угол пустым на полгода, чем купите временную вещь «для галочки»."
+    },
+    "superpower": {
+      "en": "An innate instinct for raw, tactile authenticity. You touch materials before you buy them — if wood is covered in heavy synthetic gloss or linen feels stiff, you lose interest immediately. You curate spaces that feel like a sanctuary, not a showroom.",
+      "ru": "Врождённое чутье на тактильность и честные материалы. Вы всегда трогаете фактуры руками — если дерево залито толстым слоем пластикового лака, вы теряете интерес. Вы создаёте дом, который лечит, а не выставляет статус напоказ."
+    },
+    "clearanceRule": {
+      "en": "Keep at least 85 cm (33 in) of negative clearance between low credenzas and seating. In micro-apartments (20–30 m²), keep floor coverage under 50% using floating wall-hung storage so the natural wood floor visibly connects the space.",
+      "ru": "Держите минимум 85 см свободного прохода между низкими комодами и диваном. В студиях (20–30 м²) оставляйте свободными не менее 50% площади пола, используя навесные парящие консоли."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/japandi-style-the-real-color-palette-materials-and-floor-plan-clearances-d993c1f676c6"
+  },
+  "scandinavian_nordic": {
+    "id": "scandinavian_nordic",
+    "name": {
+      "en": "Scandinavian Modern & Nordic Hygge",
+      "ru": "Скандинавский модерн и хюгге"
+    },
+    "tagline": {
+      "en": "Abundant natural light, blond timber, and effortless domestic coziness",
+      "ru": "Максимум дневного света, светлое дерево и неподдельный домашний уют"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Scandinavian Modern",
+          "ru": "Скандинавский модерн"
+        },
+        "desc": {
+          "en": "Functional blond wood, airy geometry, clean white walls",
+          "ru": "Функциональная мебель из ясеня и чистые белые стены"
+        },
+        "img": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Nordic Hygge",
+          "ru": "Северный хюгге"
+        },
+        "desc": {
+          "en": "Chunky wool throws, sheepskin, candlelit warmth",
+          "ru": "Шерстяные пледы крупной вязки, овчина и свечи"
+        },
+        "img": "https://plus.unsplash.com/premium_photo-1736194027876-a658c5a1b5ec?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Coastal Scandi",
+          "ru": "Приморский сканди"
+        },
+        "desc": {
+          "en": "Cool ocean blues, washed linen, whitewashed flooring",
+          "ru": "Морские акценты, выстиранный лён и белёная доска"
+        },
+        "img": "https://images.unsplash.com/photo-1747336754900-1b9edb05b002?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Soft Contemporary Neutral",
+          "ru": "Современный нейтрал"
+        },
+        "desc": {
+          "en": "Seamless cabinetry, hidden storage, muted beige warmth",
+          "ru": "Встроенные шкафы в цвет стен, скрытый свет и покой"
+        },
+        "img": "https://images.unsplash.com/photo-1682184805271-11671b7ecf4c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_scandinavian_nordic.jpg",
+    "palette": [
+      {
+        "name": "Stockholm White",
+        "hex": "#F9F8F6"
+      },
+      {
+        "name": "Pale Ash",
+        "hex": "#E5DFD5"
+      },
+      {
+        "name": "Oat Milk",
+        "hex": "#D7CABE"
+      },
+      {
+        "name": "Muted Slate",
+        "hex": "#7D8B8E"
+      },
+      {
+        "name": "Charcoal Accent",
+        "hex": "#2B2F33"
+      }
+    ],
+    "recharge": {
+      "en": "Morning sunshine, soft knitted throws, and a hot cup of coffee by a bright window. You feel instantly grounded when spaces are light-filled and functional.",
+      "ru": "Утреннее солнце, мягкий вязаный плед и чашка кофе у светлого окна. Вы наполняетесь силами, когда вокруг много воздуха, естественного света и нет ничего лишнего."
+    },
+    "flaw": {
+      "en": "Dark, poorly lit rooms with heavy dark drapes make you feel sleepy and claustrophobic. You physically need daylight to stay energized.",
+      "ru": "Тёмные комнаты с тяжёлыми пыльными шторами вызывают у вас апатию. Вам физически необходим дневной свет, чтобы чувствовать себя бодрым."
+    },
+    "superpower": {
+      "en": "Turning even the smallest, darkest apartment into a bright, cheerful, welcoming home using smart layered lighting and light-reflecting materials.",
+      "ru": "Умение превратить даже маленькую северную квартиру в светлое, уютное и гостеприимное гнездо с помощью тёплого света и светлых пород дерева."
+    },
+    "clearanceRule": {
+      "en": "Keep main thoroughfares at 90 cm (35 in) clear to maximize daylight bounces. Use light-colored sheer linen drapes hung at ceiling height to elevate perceived room volume.",
+      "ru": "Ширина основных проходов — от 90 см, чтобы свет свободно заливал комнату. Тюль в пол из полупрозрачного льна визуально увеличивает высоту потолка."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/scandinavian-design-style-2026-4444a70cb658"
+  },
+  "retro_modern": {
+    "id": "retro_modern",
+    "name": {
+      "en": "Architectural Retro & Mid-Century",
+      "ru": "Архитектурный модернизм и тёплое ретро"
+    },
+    "tagline": {
+      "en": "Iconic tapered silhouettes, warm walnut craft, and playful soul",
+      "ru": "Культовые силуэты на ножках, тёплый орех и характер с историей"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Mid-Century Modern",
+          "ru": "Мидсенчури модерн"
+        },
+        "desc": {
+          "en": "Tapered peg legs, warm walnut consoles, organic geometry",
+          "ru": "Конические деревянные ножки, тёплый орех, лаконичные формы"
+        },
+        "img": "https://images.unsplash.com/photo-1662781256805-3ac89ffbeae0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "70s Vintage Revival",
+          "ru": "Ретро 70-х"
+        },
+        "desc": {
+          "en": "Low-slung modular seating, amber glass, corduroy textures",
+          "ru": "Низкие диваны, янтарное стекло, вельвет и горчичные тона"
+        },
+        "img": "https://images.unsplash.com/photo-1678895223308-da40c609e39b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Bauhaus Functional",
+          "ru": "Баухаус функционализм"
+        },
+        "desc": {
+          "en": "Tubular chrome, primary accents, honest utility",
+          "ru": "Гнутые хромированные трубки, геометрия и честная функция"
+        },
+        "img": "https://plus.unsplash.com/premium_photo-1680100256127-e73d3f1f3376?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Warm Atomic Retro",
+          "ru": "Атомный ретро"
+        },
+        "desc": {
+          "en": "Brass sputnik fixtures, fluted wood, playful accents",
+          "ru": "Скульптурная латунь, рейка из ореха и выразительные акценты"
+        },
+        "img": "https://images.unsplash.com/photo-1693051896613-44b268a984bd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_retro_modern.jpg",
+    "palette": [
+      {
+        "name": "Parchment Cream",
+        "hex": "#EAE3D2"
+      },
+      {
+        "name": "Warm Walnut",
+        "hex": "#A87C4F"
+      },
+      {
+        "name": "Burnt Ochre",
+        "hex": "#B85D19"
+      },
+      {
+        "name": "Juniper Green",
+        "hex": "#2A4736"
+      },
+      {
+        "name": "Charcoal Noir",
+        "hex": "#1E252B"
+      }
+    ],
+    "recharge": {
+      "en": "Warmth, creative stimulation, and personality. Sterile gray rooms make you feel uninspired. You thrive when surrounded by good records, amber glass, and sculptural wooden shapes that tell a story.",
+      "ru": "Теплота, творческий импульс и характер. Стерильные холодные серые коробки угнетают вас. Вы наполняетесь силами в окружении винила, тёплого янтарного стекла и скульптурных деревянных предметов с историей."
+    },
+    "flaw": {
+      "en": "You can easily turn into a vintage collector. You see beauty in so many flea market finds, sculptural ceramic lamps, and retro side tables that editing your collection becomes your biggest challenge.",
+      "ru": "Тяга к коллекционированию винтажа. Вы видите красоту в таком количестве редких ламп, керамики и журнальных столиков, что вовремя остановиться и не превратить квартиру в декорации к сериалу «Безумцы» — ваш главный вызов."
+    },
+    "superpower": {
+      "en": "A genius for balancing playfulness with serious architectural elegance. You know how to introduce a bold mustard armchair or fluted teak credenza without making the room look messy.",
+      "ru": "Талант соединять смелую иронию с благородной архитектурной классикой. Вы умеете поставить горчичное кресло или комод из ореха так, что комната выглядит живой, интеллектуальной и стильной."
+    },
+    "clearanceRule": {
+      "en": "Tapered leg furniture elevates optical mass off the floor, making compact 20–30m² living rooms feel 25% larger. Maintain 45 cm (18 in) between coffee table and sofa edge.",
+      "ru": "Мебель на тонких конических ножках визуально отрывает массу от пола, за счёт чего небольшие гостиные 20–30м² кажутся на 25% просторнее. Расстояние от дивана до столика — строго 40–45 см."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/modern-retro-style-mid-century-atomic-shapes-ochre-accents-and-walnut-craft-c0b0ca82d29b"
+  },
+  "sun_drenched": {
+    "id": "sun_drenched",
+    "name": {
+      "en": "Mediterranean & Earthy Coastal",
+      "ru": "Средиземноморское тепло и терракота"
+    },
+    "tagline": {
+      "en": "Limewash walls, sunbaked clay, and unhurried coastal slowness",
+      "ru": "Известковая штукатурка, нагретая глина и неспешный морской воздух"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Modern Mediterranean",
+          "ru": "Современный средиземноморский"
+        },
+        "desc": {
+          "en": "Arched alcoves, textured limewash, warm travertine stone",
+          "ru": "Арочные ниши, фактурная штукатурка, тёплый травертин"
+        },
+        "img": "https://images.unsplash.com/photo-1760981348070-ffa100647759?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Wabi Coast",
+          "ru": "Ваби-коуст"
+        },
+        "desc": {
+          "en": "Weathered driftwood, sun-bleached linen, raw ceramics",
+          "ru": "Выбеленный солнцем лён, морской бриз и неровная глина"
+        },
+        "img": "https://images.unsplash.com/photo-1721630175454-0ca4517bb530?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Desert Modern",
+          "ru": "Пустынный модерн"
+        },
+        "desc": {
+          "en": "Adobe tones, sculptural cacti, warm sandy textures",
+          "ru": "Песочные оттенки, кактусы в глиняных горшках, терракота"
+        },
+        "img": "https://images.unsplash.com/photo-1761666254267-afe141cdc951?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Spanish Earthen",
+          "ru": "Испанский глиняный"
+        },
+        "desc": {
+          "en": "Terracotta floor tiles, dark timber beams, iron accents",
+          "ru": "Плитка котто, тёмные балки и ручная кованая фурнитура"
+        },
+        "img": "https://images.unsplash.com/photo-1631724604275-af3bbb5c904d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_sun_drenched.jpg",
+    "palette": [
+      {
+        "name": "Calcite Chalk",
+        "hex": "#FDFBF7"
+      },
+      {
+        "name": "Sunbaked Terracotta",
+        "hex": "#D27D56"
+      },
+      {
+        "name": "Aged Olive Wood",
+        "hex": "#A4896D"
+      },
+      {
+        "name": "Wild Sagebrush",
+        "hex": "#637059"
+      },
+      {
+        "name": "Aegean Dusk",
+        "hex": "#34404A"
+      }
+    ],
+    "recharge": {
+      "en": "Tactile organic warmth and barefoot slowness. You feel happiest when sunlight streams across chalky walls, with textured pottery and the window open to catch a breeze.",
+      "ru": "Тактильное тепло и возможность ходить босиком. Вы чувствуете себя счастливее всего, когда утреннее солнце ложится на шероховатые стены, на кухне пахнет кофе, а окна распахнуты навстречу воздуху."
+    },
+    "flaw": {
+      "en": "You hate sharp modern clinical corners. Sharp laminate surfaces and shiny chrome fixtures give you an instant headache.",
+      "ru": "Непереносимость пластика и холодного хрома. Глянцевый ламинат и офисный минимализм вызывают у вас тоску — вам жизненно необходимы природные несовершенства, глина и дерево."
+    },
+    "superpower": {
+      "en": "You make any house feel like a sunlit vacation villa. Guests enter your space, immediately take off their shoes, exhale deeply, and end up staying three hours longer than planned.",
+      "ru": "Вы умеете создавать ощущение тёплого отпуска в обычной квартире. Гости у вас дома инстинктивно расслабляются, снимают обувь, пьют чай и засиживаются до полуночи."
+    },
+    "clearanceRule": {
+      "en": "Soft curved furniture corners optimize circular pathways in awkward rooms. Keep at least 80 cm clearance around dining tables with low terracotta or ceramic lighting.",
+      "ru": "Скруглённые углы мебели идеальны для узких проходов. Вокруг обеденного стола оставляйте не менее 80 см для свободного отодвигания стульев."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/wabi-coast-design-modern-mediterranean-architecture-meets-japanese-serenity-7d77af17ae57"
+  },
+  "urban_loft": {
+    "id": "urban_loft",
+    "name": {
+      "en": "Industrial Loft & Soft Brutalism",
+      "ru": "Индустриальный лофт и мягкий брутализм"
+    },
+    "tagline": {
+      "en": "Authentic structure, blackened steel, and open double-height volume",
+      "ru": "Честная архитектура, чёрная сталь и свобода открытого пространства"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Industrial Loft",
+          "ru": "Индустриальный лофт"
+        },
+        "desc": {
+          "en": "Exposed brickwork, factory windows, patinated leather",
+          "ru": "Кирпичная кладка, окна с расстекловкой, потёртая кожа"
+        },
+        "img": "https://images.unsplash.com/photo-1583719445062-62d0d98c4d8b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Soft Brutalism",
+          "ru": "Мягкий брутализм"
+        },
+        "desc": {
+          "en": "Poured concrete, oversized wool rugs, monolithic forms",
+          "ru": "Гладкий бетон, огромные мягкие ковры и монолитные блоки"
+        },
+        "img": "https://images.unsplash.com/photo-1698235458449-99749c744c17?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Urban Warehouse",
+          "ru": "Городской складской лофт"
+        },
+        "desc": {
+          "en": "Open ductwork, reclaimed hardwood tables, steel frames",
+          "ru": "Открытые коммуникации, массив амбарного дуба и металл"
+        },
+        "img": "https://images.unsplash.com/photo-1597498178146-3e9378203bc9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Concrete Minimalist",
+          "ru": "Бетонный минимализм"
+        },
+        "desc": {
+          "en": "Architectural shadows, track lighting, clean surfaces",
+          "ru": "Архитектурные тени, трековые споты и чистые плоскости"
+        },
+        "img": "https://images.unsplash.com/photo-1738748444626-ed333be8afc7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_urban_loft.jpg",
+    "palette": [
+      {
+        "name": "Raw Concrete Mortar",
+        "hex": "#EAE6DF"
+      },
+      {
+        "name": "Weathered Brick",
+        "hex": "#9E5B42"
+      },
+      {
+        "name": "Cognac Saddle",
+        "hex": "#8B4513"
+      },
+      {
+        "name": "Iron Gray",
+        "hex": "#54585A"
+      },
+      {
+        "name": "Matte Carbon",
+        "hex": "#1C1D1F"
+      }
+    ],
+    "recharge": {
+      "en": "Air, scale, and architectural breathing room. Fussy frills, floral prints, and cramped partitions make you feel trapped. You need durable materials that get better with age.",
+      "ru": "Воздух, масштаб и ощущение свободы. Мелкий декор, цветочные шторы и тесные перегородки вызывают у вас клаустрофобию. Вам нужны прочные материалы, которые со временем становятся только лучше."
+    },
+    "flaw": {
+      "en": "If you do not balance your space with warm leather, heavy wool rugs, and warm lighting, your living room can start feeling like a trendy co-working space.",
+      "ru": "Риск превратить дом в коворкинг. Если не добавить мягкой коньячной кожи, тяжёлых шерстяных ковров и тёплых спотов, пространство рискует стать слишком брутальным."
+    },
+    "superpower": {
+      "en": "Mastery of open space zoning. You can organize a massive 60m² open plan or a compact studio into razor-sharp functional zones without erecting a single drywall partition.",
+      "ru": "Мастерство зонирования открытых пространств. Вы можете организовать студию без единой глухой стены, грамотно используя расстановку мебели, свет и ковры."
+    },
+    "clearanceRule": {
+      "en": "In open studio lofts, define zones without walls using large area rugs extending 20 cm beyond sofa footprints. Use open steel shelving as semi-transparent dividers.",
+      "ru": "В открытых лофтах зонируйте пространство коврами (минимум на 20 см шире периметра дивана) и сквозными стеллажами, не перекрывающими свет."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/soft-brutalism-architectural-concrete-raw-travertine-and-warm-textiles-964ea3ea6e77"
+  },
+  "moody_cinematic": {
+    "id": "moody_cinematic",
+    "name": {
+      "en": "Moody Cinematic & Dark Elegance",
+      "ru": "Кинематографичный нуар и тёмный люкс"
+    },
+    "tagline": {
+      "en": "Intimate depth, floor-to-ceiling books, and candlelit library drama",
+      "ru": "Глубокие тени, книжные стеллажи до потолка и свечная магия"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Dark Academia",
+          "ru": "Дарк Академия"
+        },
+        "desc": {
+          "en": "Wall-to-wall books, brass banker lamps, antique leather",
+          "ru": "Книги до потолка, зелёное стекло ламп, потёртая кожа кресел"
+        },
+        "img": "https://images.unsplash.com/photo-1582901109033-8aad6fed8168?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Moody Luxe",
+          "ru": "Тёмный люкс"
+        },
+        "desc": {
+          "en": "Plush emerald velvet, moody black marble, smoked glass",
+          "ru": "Изумрудный бархат, чёрный мрамор и дымчатое стекло"
+        },
+        "img": "https://images.unsplash.com/photo-1774551351897-c64cd76a7c22?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Gothic Modern",
+          "ru": "Готический модерн"
+        },
+        "desc": {
+          "en": "Dramatic archways, charcoal lime-wash, sculptural candles",
+          "ru": "Драматичные арки, графитовые стены и свечи в канделябрах"
+        },
+        "img": "https://images.unsplash.com/photo-1603561129263-cf39c328228b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Midnight Study",
+          "ru": "Полуночный кабинет"
+        },
+        "desc": {
+          "en": "Deep indigo walls, focused warm pools of light, dark walnut",
+          "ru": "Глубокий чернильный цвет стен, тёмный орех и уютное бра"
+        },
+        "img": "https://images.unsplash.com/photo-1776763255182-2f081b0d1be8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_moody_cinematic.jpg",
+    "palette": [
+      {
+        "name": "Antique Parchment",
+        "hex": "#D8CCA3"
+      },
+      {
+        "name": "Dark Walnut",
+        "hex": "#543D2B"
+      },
+      {
+        "name": "Hunter Velvet",
+        "hex": "#26382E"
+      },
+      {
+        "name": "Oxblood Deep",
+        "hex": "#431921"
+      },
+      {
+        "name": "Obsidian Shadow",
+        "hex": "#161618"
+      }
+    ],
+    "recharge": {
+      "en": "Quiet evening seclusion, books, and deep comforting darkness. Bright white overhead lights feel like a dental clinic to you. You recharge best with rain tapping on glass and focused brass reading lamps.",
+      "ru": "Вечернее уединение, книги и уютная обволакивающая темнота. Верхний белый свет кажется вам допросом у стоматолога. Вы оживаете под стук дождя по стеклу, с чашкой чая и тёплым светом настольной лампы."
+    },
+    "flaw": {
+      "en": "You keep dimming the lighting until your friends need their smartphone flashlights to find their wine glasses. You refuse to turn on the main chandelier.",
+      "ru": "Вы постоянно приглушаете свет до состояния, когда гости ищут бокалы на ощупь. Включить верхнюю люстру для вас — настоящее преступление против уюта."
+    },
+    "superpower": {
+      "en": "You understand that mood is created by shadows, not just light. You transform ordinary rooms into cinematic, atmospheric havens with immense historic soul.",
+      "ru": "Вы понимаете, что атмосферу создаёт не столько свет, сколько полутень. Вы умеете превратить типовую комнату в роскошный кабинет с характером старинного особняка."
+    },
+    "clearanceRule": {
+      "en": "Color-drench baseboards and ceiling crown moldings in the same deep tone as walls to eliminate visual cuts, tricking the eye into perceiving 30 cm taller ceilings.",
+      "ru": "Красьте плинтусы и карнизы в тот же глубокий цвет, что и стены: отсутствие контрастных линий визуально приподнимает потолок на 25–30 см."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/dark-academia-interior-design-paint-codes-library-layouts-and-atmospheric-styling-1be818b471cd"
+  },
+  "classical_heritage": {
+    "id": "classical_heritage",
+    "name": {
+      "en": "Classical Heritage & Parisian Elegance",
+      "ru": "Парижский шик и современная неоклассика"
+    },
+    "tagline": {
+      "en": "Ornate wall moldings, chevron oak parquet, and timeless poise",
+      "ru": "Изящная лепнина, паркет елочкой и вневременное парижское изящество"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Parisian Haussmann",
+          "ru": "Парижский османский стиль"
+        },
+        "desc": {
+          "en": "High ceilings, boiserie moldings, gilded antique mirrors",
+          "ru": "Высокие потолки, настенные молдинги, антикварное зеркало"
+        },
+        "img": "https://images.unsplash.com/photo-1505409628601-edc9af17fda6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Neo-Classical Modern",
+          "ru": "Современная неоклассика"
+        },
+        "desc": {
+          "en": "Symmetrical balance, marble fireplace, tailored upholstery",
+          "ru": "Строгая симметрия, мраморный портал камина и строгий диван"
+        },
+        "img": "https://images.unsplash.com/photo-1782392399192-0828e79a941b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Classic Traditional",
+          "ru": "Традиционная классика"
+        },
+        "desc": {
+          "en": "Rich mahogany, crystal chandeliers, balanced symmetry",
+          "ru": "Благородный махагони, хрусталь и выверенные пропорции"
+        },
+        "img": "https://images.unsplash.com/photo-1663927984771-d6f3b9765b00?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Transitional Elegance",
+          "ru": "Переходная классика"
+        },
+        "desc": {
+          "en": "Classic architectural envelope paired with sleek modern art",
+          "ru": "Классическая лепнина в паре с современной лаконичной мебелью"
+        },
+        "img": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_classical_heritage.jpg",
+    "palette": [
+      {
+        "name": "Haussmann Alabaster",
+        "hex": "#FAF7F2"
+      },
+      {
+        "name": "Versailles Gray",
+        "hex": "#D5CFC7"
+      },
+      {
+        "name": "Antique Gold",
+        "hex": "#C5A059"
+      },
+      {
+        "name": "Empire Blue",
+        "hex": "#3E5165"
+      },
+      {
+        "name": "Honed Noir Marble",
+        "hex": "#202124"
+      }
+    ],
+    "recharge": {
+      "en": "Architectural symmetry, soaring vertical proportions, and refined materials. Walking into a room with quiet balance and soft natural light brings you immediate inner peace.",
+      "ru": "Архитектурная симметрия, воздух высоких потолков и благородные фактуры. Входя в комнату с безупречными пропорциями и мягким дневным светом, вы мгновенно обретаете внутреннее равновесие."
+    },
+    "flaw": {
+      "en": "Cheap plastic reproductions and sloppy asymmetrical layouts offend your visual sense of order. You cannot stand crooked frames or flimsy fast-furniture.",
+      "ru": "Дешёвый пластик и криво повешенные картины физически раздражают ваш взгляд. Вы не переносите одноразовые вещи и визуальный перекос в расстановке."
+    },
+    "superpower": {
+      "en": "An instinct for timeless architectural proportion. You know how to incorporate moldings and classical motifs so they feel fresh, airy, and contemporary rather than heavy or museum-like.",
+      "ru": "Безупречное чувство меры и пропорций. Вы умеете обыграть лепнину и классические детали так, что квартира выглядит свежей, модной и воздушной, а не музейным залом."
+    },
+    "clearanceRule": {
+      "en": "Anchor seating arrangements strictly along architectural focal points (fireplaces or windows). Maintain at least 100 cm (39 in) of symmetrical walkway around main conversational groups.",
+      "ru": "Выстраивайте диванную группу строго по центральной оси комнаты или окна. Оставляйте не менее 100 см симметричного прохода с обеих сторон."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/parisian-haussmann-interior-design-moldings-chevron-floors-and-modern-art-89f5bc32b1e2"
+  },
+  "biophilic_green": {
+    "id": "biophilic_green",
+    "name": {
+      "en": "Biophilic Nature & Botanical Sanctuary",
+      "ru": "Биофильный оазис и единение с природой"
+    },
+    "tagline": {
+      "en": "Living botanicals, morning daylight corridors, and earthy serenity",
+      "ru": "Живая зелень, утренний свет и органическая свежесть природы"
+    },
+    "substyles": [
+      {
+        "name": {
+          "en": "Biophilic Modern",
+          "ru": "Биофильный модерн"
+        },
+        "desc": {
+          "en": "Integrated planter walls, light timber, natural air circulation",
+          "ru": "Встроенные фитостены, светлый дуб и максимум воздуха"
+        },
+        "img": "https://images.unsplash.com/photo-1761971976407-db2374e4ae12?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Tropical Organic",
+          "ru": "Тропический органический"
+        },
+        "desc": {
+          "en": "Lush oversized foliage, bamboo slats, woven cane seating",
+          "ru": "Крупные листья монстер, ротанг и плетёные фактуры"
+        },
+        "img": "https://images.unsplash.com/photo-1631510390389-c1e4fb20ff31?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Greenhouse Studio",
+          "ru": "Зимний сад и студия"
+        },
+        "desc": {
+          "en": "Terracotta pots on tiered iron stands, sun-drenched glass",
+          "ru": "Ярусные металлические стойки с глиняными кашпо у окна"
+        },
+        "img": "https://images.unsplash.com/photo-1760155312963-a50596435558?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      },
+      {
+        "name": {
+          "en": "Botanical Sanctuary",
+          "ru": "Ботанический оазис"
+        },
+        "desc": {
+          "en": "Hanging trailing vines, tactile linen, restorative moss greens",
+          "ru": "Свисающие ампельные растения, лён и природный мох"
+        },
+        "img": "https://images.unsplash.com/photo-1759496330311-cf2e935a7553?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+      }
+    ],
+    "img": "assets/hero_biophilic_green.jpg",
+    "palette": [
+      {
+        "name": "Morning Linen",
+        "hex": "#F6F4EE"
+      },
+      {
+        "name": "Matcha Sprout",
+        "hex": "#B8C29D"
+      },
+      {
+        "name": "Eucalyptus Leaf",
+        "hex": "#4D6257"
+      },
+      {
+        "name": "Honey Oak",
+        "hex": "#CFA775"
+      },
+      {
+        "name": "Forest Soil",
+        "hex": "#3E342B"
+      }
+    ],
+    "recharge": {
+      "en": "Living green leaves, clean natural air, and morning sunlight. If you are stuck in an enclosed windowless room for a day, you can literally feel your vital battery drain.",
+      "ru": "Живые растения, чистый воздух и естественный солнечный свет. Если вы проводите день в глухом помещении без окон и зелени, ваша внутренняя батарейка моментально садится."
+    },
+    "flaw": {
+      "en": "Your apartment is slowly turning into a botanical garden. Every trip to the grocery store ends with another monstera or ceramic planter that you technically have no shelf space for.",
+      "ru": "Квартира плавно превращается в оранжерею. Каждый поход в магазин грозит покупкой нового фикуса или кашпо, под которые на подоконниках уже физически нет места."
+    },
+    "superpower": {
+      "en": "You bring life and clean air into spaces that felt sterile and dead. You choreograph daylight paths and greenery so that walking into your living room lowers stress immediately.",
+      "ru": "Вы умеете оживить любое безликое пространство. Вы так расставляете растения и впускаете свет, что при входе в комнату пульс замедляется, а стресс улетучивается."
+    },
+    "clearanceRule": {
+      "en": "Elevate houseplants off the floor with tiered stands and ceiling hangers to maintain 75 cm walking clearance while doubling vertical greenery density.",
+      "ru": "Поднимайте кашпо на стойки и подвесы: это сохраняет 75 см чистого прохода по полу и удваивает объём зелени на уровне взгляда."
+    },
+    "mediumSlug": "https://medium.com/@homeplanner/biophilic-interior-design-the-practical-guide-to-plant-life-light-and-natural-materials-d58578928a3c"
+  }
+};
+
+    // --- 3. 5 VISUAL QUESTIONS WITH EXPLANATORY PHOTOS (SOFAS ON NEUTRAL, MOODBOARDS, ETC.) ---
+    const QUESTIONS_DATA = [
+  {
+    "category": {
+      "en": "Color Harmonies",
+      "ru": "Цветовая гармония"
+    },
+    "title": {
+      "en": "Which color palette makes you feel instantly at peace?",
+      "ru": "Какая цветовая палитра моментально снимает ваш стресс?"
+    },
+    "subtitle": {
+      "en": "Choose the visual atmosphere your eyes crave after a long busy day.",
+      "ru": "Выберите сочетание оттенков, к которому инстинктивно тянется ваш взгляд."
+    },
+    "options": [
+      {
+        "title": {
+          "en": "Neutral Organic Tones",
+          "ru": "Нейтральные органические оттенки"
+        },
+        "desc": {
+          "en": "Oatmeal linen, soft beige, bleached birch, sandstone.",
+          "ru": "Овсяный лён, бежевый, выбеленный дуб, песочный."
+        },
+        "img": "https://images.unsplash.com/photo-1752321531522-20d9c4dc2e0b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "warm_organic",
+          "scandinavian_nordic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Sun-Drenched Terracotta & Clay",
+          "ru": "Солнечная терракота и глина"
+        },
+        "desc": {
+          "en": "Warm earthen plaster, sunbaked umber, aged olive wood.",
+          "ru": "Известковая штукатурка, жжёная глина, оливковое дерево."
+        },
+        "img": "https://images.unsplash.com/photo-1752321531856-72d91d79c475?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "sun_drenched"
+        ]
+      },
+      {
+        "title": {
+          "en": "Retro Teakwood & Amber Accents",
+          "ru": "Орех, тик и янтарные акценты"
+        },
+        "desc": {
+          "en": "Rich walnut tones, brass highlights, mustard and cinnamon.",
+          "ru": "Тёплый орех, латунь, нотки горчицы и корицы."
+        },
+        "img": "https://images.unsplash.com/photo-1752321531753-d02f83283c5e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "retro_modern"
+        ]
+      },
+      {
+        "title": {
+          "en": "Moody Noir & Deep Charcoal",
+          "ru": "Драматичный нуар и тёмный велюр"
+        },
+        "desc": {
+          "en": "Deep hunter greens, midnight charcoal, antique woods.",
+          "ru": "Глубокий изумруд, графит, тёмное дерево и благородный бархат."
+        },
+        "img": "https://images.unsplash.com/photo-1752321532730-ed24a51e7b3f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "moody_cinematic",
+          "urban_loft"
+        ]
+      },
+      {
+        "title": {
+          "en": "Fresh Sage & Botanical Green",
+          "ru": "Свежий шалфей и природная зелень"
+        },
+        "desc": {
+          "en": "Crisp light reflection, pale woods, matcha leaf accents.",
+          "ru": "Светлые породы дерева, матча, эвкалипт и чистота."
+        },
+        "img": "https://images.unsplash.com/photo-1752321531183-142f7d8cea65?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "biophilic_green",
+          "scandinavian_nordic"
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "en": "Seating Silhouettes",
+      "ru": "Силуэты мебели"
+    },
+    "title": {
+      "en": "Pick your ideal sofa silhouette (on neutral background):",
+      "ru": "Какой силуэт дивана ближе всего вашему представлению об уюте?"
+    },
+    "subtitle": {
+      "en": "Focus purely on the lines, legs, and mass off the floor.",
+      "ru": "Обратите внимание на форму, ножки и высоту посадки от пола."
+    },
+    "options": [
+      {
+        "title": {
+          "en": "Low-Profile Platform Sofa",
+          "ru": "Низкий диван-платформа"
+        },
+        "desc": {
+          "en": "Minimalist horizontal lines, grounded close to the floor.",
+          "ru": "Чистые лаконичные линии, близко к полу, визуальная тишина."
+        },
+        "img": "https://plus.unsplash.com/premium_photo-1673548917477-4c0c8889b439?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "warm_organic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Tapered Peg Legs & Mid-Century Curve",
+          "ru": "Тонкие деревянные конические ножки"
+        },
+        "desc": {
+          "en": "Elevated off the floor with slender angled wooden legs.",
+          "ru": "Оторван от пола на изящных ножках, лёгкий и культовый."
+        },
+        "img": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "retro_modern",
+          "scandinavian_nordic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Deep Relaxed Belgian Linen",
+          "ru": "Глубокий диван в расслабленном льне"
+        },
+        "desc": {
+          "en": "Casual, cloud-like, super comfortable sink-in seating.",
+          "ru": "Мягкий, уютный чехол из натурального льна, в который приятно провалиться."
+        },
+        "img": "https://images.unsplash.com/photo-1759722665614-265fdf133b37?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "sun_drenched",
+          "warm_organic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Tailored Parisian Curve & Bouclé",
+          "ru": "Изогнутый парижский диван в букле"
+        },
+        "desc": {
+          "en": "Sculptural elegance, soft fluid curves, haute couture grace.",
+          "ru": "Скульптурная пластика, благородные изгибы и парижский шик."
+        },
+        "img": "https://images.unsplash.com/photo-1684165610413-2401399e0e59?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "classical_heritage",
+          "scandinavian_nordic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Tufted Cognac Leather & Steel",
+          "ru": "Коньячная кожа и стальной каркас"
+        },
+        "desc": {
+          "en": "Authentic heavy-duty industrial soul with patinated leather.",
+          "ru": "Винтажная фактурная кожа, металлическая база, дух мастерской."
+        },
+        "img": "https://images.unsplash.com/photo-1573866926487-a1865558a9cf?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "urban_loft",
+          "moody_cinematic"
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "en": "Lighting & Ambience",
+      "ru": "Вечерний свет"
+    },
+    "title": {
+      "en": "What lighting scenario makes your evening truly magical?",
+      "ru": "Какой сценарий вечернего освещения дарит вам максимальный уют?"
+    },
+    "subtitle": {
+      "en": "Light sets the psychological temperature of your home.",
+      "ru": "Свет определяет эмоциональную атмосферу и глубину пространства."
+    },
+    "options": [
+      {
+        "title": {
+          "en": "Diffused Washi Paper Lanterns",
+          "ru": "Бумажные фонари с рассеянным светом"
+        },
+        "desc": {
+          "en": "Warm 2200K ambient glow mimicking gentle candlelight.",
+          "ru": "Мягкий тёплый свет сквозь рисовую бумагу, ноль бликов."
+        },
+        "img": "https://images.unsplash.com/photo-1767627942878-4b566b84fdac?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "warm_organic",
+          "biophilic_green"
+        ]
+      },
+      {
+        "title": {
+          "en": "Sculptural Brass Sputnik Chandelier",
+          "ru": "Скульптурная люстра из тёплой латуни"
+        },
+        "desc": {
+          "en": "Statement architectural focal point with angled cones.",
+          "ru": "Эффектный арт-объект по центру комнаты с поворотными рожками."
+        },
+        "img": "https://images.unsplash.com/photo-1561312578-327c29b5b7e3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "retro_modern"
+        ]
+      },
+      {
+        "title": {
+          "en": "Ceramic Table Lamp & Linen Shade",
+          "ru": "Керамическая лампа с льняным абажуром"
+        },
+        "desc": {
+          "en": "Intimate warm pools of light across side tables and nooks.",
+          "ru": "Камерные острова тёплого света на столиках и в углах для чтения."
+        },
+        "img": "https://images.unsplash.com/photo-1717944443951-b5086c3fc417?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "sun_drenched",
+          "scandinavian_nordic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Crystal Chandelier, Moldings & Candles",
+          "ru": "Хрусталь, настенные бра и свечи"
+        },
+        "desc": {
+          "en": "Timeless reflections, classic symmetry, evening poetry.",
+          "ru": "Хрустальные переливы, симметричные бра и мягкие отблески свечей."
+        },
+        "img": "https://images.unsplash.com/photo-1531762948975-73032b7b61f4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "classical_heritage",
+          "moody_cinematic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Black Directional Track Spots",
+          "ru": "Чёрные поворотные трековые споты"
+        },
+        "desc": {
+          "en": "Architectural beam lighting washing textures and masonry.",
+          "ru": "Направленные световые лучи, подчёркивающие фактуру стен."
+        },
+        "img": "https://images.unsplash.com/photo-1625498691217-83f283fbd021?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "urban_loft"
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "en": "Material Moodboards",
+      "ru": "Мудборды материалов"
+    },
+    "title": {
+      "en": "Which material moodboard do you want to touch with your hands?",
+      "ru": "К какому мудборду материалов вам хочется прикоснуться рукой?"
+    },
+    "subtitle": {
+      "en": "Tactile authenticity determines how a room feels under your fingers.",
+      "ru": "Настоящие природные фактуры определяют, насколько дом приятен на ощупь."
+    },
+    "options": [
+      {
+        "title": {
+          "en": "Bleached Oak, Jute & Stoneware",
+          "ru": "Выбеленный дуб, джут и глина"
+        },
+        "desc": {
+          "en": "Honest untreated wood slats, beige linen, rough pottery.",
+          "ru": "Нелакированное светлое дерево, небелёный лён, керамика ручной работы."
+        },
+        "img": "assets/moodboard_q4_a.jpg",
+        "styles": [
+          "warm_organic",
+          "scandinavian_nordic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Fluted Walnut, Brass & Boucle",
+          "ru": "Фактурный орех, латунь и букле"
+        },
+        "desc": {
+          "en": "Rich wooden grain, brushed metallic luster, tactile wool.",
+          "ru": "Благородный рисунок ореха, матовая латунь и мягкая шерстяная ткань."
+        },
+        "img": "assets/moodboard_q4_b.jpg",
+        "styles": [
+          "retro_modern"
+        ]
+      },
+      {
+        "title": {
+          "en": "Limewash Plaster & Terracotta Tile",
+          "ru": "Известковая штукатурка и терракота"
+        },
+        "desc": {
+          "en": "Chalky matte walls, baked clay, sun-bleached olive wood.",
+          "ru": "Шероховатая матовая стена, обожжённая глина, оливковое дерево."
+        },
+        "img": "assets/moodboard_q4_c.jpg",
+        "styles": [
+          "sun_drenched"
+        ]
+      },
+      {
+        "title": {
+          "en": "Living Botanicals & Chunky Wool",
+          "ru": "Живая зелень, светлая берёза и шерсть"
+        },
+        "desc": {
+          "en": "Lush monstera foliage, blond timber, cozy natural knits.",
+          "ru": "Глянцевые живые листья, светлое дерево и объёмный вязаный плед."
+        },
+        "img": "assets/moodboard_q4_d.jpg",
+        "styles": [
+          "biophilic_green"
+        ]
+      },
+      {
+        "title": {
+          "en": "Chevron Parquet, Marble & Moldings",
+          "ru": "Паркет елочкой, мрамор и лепнина"
+        },
+        "desc": {
+          "en": "French herringbone oak, honed Calacatta, relief wall boiserie.",
+          "ru": "Французская елочка из дуба, матовый мрамор и изящные молдинги."
+        },
+        "img": "assets/moodboard_q4_e.jpg",
+        "styles": [
+          "classical_heritage",
+          "moody_cinematic"
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "en": "Space Planning & Layout",
+      "ru": "Планировка и зонирование"
+    },
+    "title": {
+      "en": "What is your primary room layout priority right now?",
+      "ru": "Какая планировочная задача сейчас для вас главная?"
+    },
+    "subtitle": {
+      "en": "We use this to calibrate your small-space clearance golden rule.",
+      "ru": "Это поможет точно рассчитать правило эргономики и проходов для вашего дома."
+    },
+    "options": [
+      {
+        "title": {
+          "en": "Smart Zoning for Compact 20–35m²",
+          "ru": "Умное зонирование студии 20–35 м²"
+        },
+        "desc": {
+          "en": "Eliminating dead corners, freeing walkways, uncluttered flow.",
+          "ru": "Исключить слепые зоны, освободить проходы и не перегрузить метры."
+        },
+        "img": "https://images.unsplash.com/photo-1722942116153-ee3aa0fc2153?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "warm_organic",
+          "scandinavian_nordic"
+        ]
+      },
+      {
+        "title": {
+          "en": "Airy Symmetrical Living Room",
+          "ru": "Сбалансированная гармоничная гостиная"
+        },
+        "desc": {
+          "en": "Balanced furniture sightlines and clean spatial alignment.",
+          "ru": "Чёткая симметрия, визуальный баланс и простор для отдыха."
+        },
+        "img": "https://images.unsplash.com/photo-1600494448850-6013c64ba722?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "classical_heritage",
+          "retro_modern"
+        ]
+      },
+      {
+        "title": {
+          "en": "Open Loft Flow with Island Zones",
+          "ru": "Открытый лофт с островными зонами"
+        },
+        "desc": {
+          "en": "Seamless transitions between kitchen, dining, and lounge.",
+          "ru": "Единое пространство без глухих стен с разделением коврами."
+        },
+        "img": "https://images.unsplash.com/photo-1783990349147-906f62b882c1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "urban_loft"
+        ]
+      },
+      {
+        "title": {
+          "en": "Indoor-Outdoor Sunlit Corridor",
+          "ru": "Связь с террасой и естественным светом"
+        },
+        "desc": {
+          "en": "Maximizing glass window views and breezy natural circulation.",
+          "ru": "Максимум солнца из больших окон, лёгкость и свежий воздух."
+        },
+        "img": "https://images.unsplash.com/photo-1758565811272-e79917ca0adc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "sun_drenched",
+          "biophilic_green"
+        ]
+      },
+      {
+        "title": {
+          "en": "Cozy Intimate Reading Retreat",
+          "ru": "Укромный уголок для чтения и книг"
+        },
+        "desc": {
+          "en": "Deep comfortable seating shielded from room thoroughfares.",
+          "ru": "Камерная зона отдыха, защищённая от суеты и проходных коридоров."
+        },
+        "img": "https://images.unsplash.com/photo-1791889785360-2116381eed05?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+        "styles": [
+          "moody_cinematic"
+        ]
+      }
+    ]
+  }
+];
+
+    // --- 4. APP STATE CONTROLLER ---
+    let currentLang = 'en';
+    let currentStep = 0;
+    const scores = {};
+    Object.keys(DIRECTIONS_DB).forEach(k => scores[k] = 0);
+    const selectedAnswers = new Array(QUESTIONS_DATA.length).fill(null);
+    let isTransitioning = false;
+    let lastResultWinner = null;
+
+    // Detect language from URL param (?lang=ru) or localStorage or browser
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+    const storedLang = localStorage.getItem('hp_quiz_lang');
+    const browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+
+    if (paramLang && I18N[paramLang]) {
+      currentLang = paramLang;
+    } else if (storedLang && I18N[storedLang]) {
+      currentLang = storedLang;
+    } else if (I18N[browserLang]) {
+      currentLang = browserLang;
+    }
+
+    // Direct direction URL param check (?style=warm_organic)
+    const directDirection = urlParams.get('style');
+
+    // DOM Elements
+    const langSelector = document.getElementById('lang-selector');
+    const screenIntro = document.getElementById('screen-intro');
+    const screenQuestion = document.getElementById('screen-question');
+    const screenResult = document.getElementById('screen-result');
+    const progressBar = document.getElementById('progress-bar');
+
+    const questionStep = document.getElementById('question-step');
+    const questionCategory = document.getElementById('question-category');
+    const questionTitle = document.getElementById('question-title');
+    const questionSubtitle = document.getElementById('question-subtitle');
+    const optionsContainer = document.getElementById('options-container');
+    const btnPrevStep = document.getElementById('btn-prev-step');
+    const btnBottomPrev = document.getElementById('btn-bottom-prev');
+
+    const resultStyleName = document.getElementById('result-style-name');
+    const resultStyleTagline = document.getElementById('result-style-tagline');
+    const resultStyleImage = document.getElementById('result-style-image');
+    const resultSubstyles = document.getElementById('result-substyles');
+    const resultRecharge = document.getElementById('result-recharge');
+    const resultFlaw = document.getElementById('result-flaw');
+    const resultSuperpower = document.getElementById('result-superpower');
+    const resultClearanceRule = document.getElementById('result-clearance-rule');
+    const swatchesGrid = document.getElementById('swatches-grid');
+    const resultAppCta = document.getElementById('result-app-cta');
+
+    const shareModal = document.getElementById('share-modal');
+    const btnOpenShare = document.getElementById('btn-open-share');
+    const btnQuickDownload = document.getElementById('btn-quick-download');
+    const btnCloseShare = document.getElementById('btn-close-share');
+    const shareTelegram = document.getElementById('share-telegram');
+    const shareWhatsApp = document.getElementById('share-whatsapp');
+    const sharePinterest = document.getElementById('share-pinterest');
+    const shareInstagram = document.getElementById('share-instagram');
+    const shareUrlInput = document.getElementById('share-url-input');
+    const btnCopyShareUrl = document.getElementById('btn-copy-share-url');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+
+    // --- 5. INITIALIZE LOCALIZATION ---
+    function setLanguage(lang) {
+      if (!I18N[lang]) lang = 'en';
+      currentLang = lang;
+      localStorage.setItem('hp_quiz_lang', lang);
+      langSelector.value = lang;
+
+      // RTL handling for Arabic
+      if (lang === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+
+      // Update static UI elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (I18N[lang] && I18N[lang][key]) {
+          el.innerText = I18N[lang][key];
+        } else if (I18N['en'][key]) {
+          el.innerText = I18N['en'][key];
+        }
+      });
+
+      // Update current dynamic screen
+      if (!screenQuestion.classList.contains('hidden')) {
+        renderQuestion(false);
+      } else if (!screenResult.classList.contains('hidden')) {
+        showResult();
+      }
+    }
+
+    langSelector.addEventListener('change', (e) => {
+      setLanguage(e.target.value);
+    });
+
+    // --- 6. NAVIGATION HANDLERS ---
+    document.getElementById('btn-start-quiz').addEventListener('click', () => {
+      screenIntro.classList.add('fade-out');
+      setTimeout(() => {
+        screenIntro.classList.add('hidden');
+        screenQuestion.classList.remove('hidden');
+        screenQuestion.classList.add('fade-in');
+        currentStep = 0;
+        selectedAnswers.fill(null);
+        renderQuestion(false);
+      }, 180);
+    });
+
+    function handleGoBack() {
+      if (isTransitioning) return;
+      if (currentStep > 0) {
+        currentStep--;
+        renderQuestion(true);
+      } else {
+        screenQuestion.classList.add('fade-out');
+        setTimeout(() => {
+          screenQuestion.classList.add('hidden');
+          screenIntro.classList.remove('hidden');
+          screenIntro.classList.remove('fade-out');
+          screenIntro.classList.add('fade-in');
+          progressBar.style.width = '0%';
+        }, 180);
+      }
+    }
+
+    btnPrevStep.addEventListener('click', handleGoBack);
+    btnBottomPrev.addEventListener('click', handleGoBack);
+
+    function calculateScores() {
+      Object.keys(DIRECTIONS_DB).forEach(k => scores[k] = 0);
+      selectedAnswers.forEach(opt => {
+        if (opt && opt.styles) {
+          opt.styles.forEach(s => {
+            if (scores[s] !== undefined) scores[s] += 1;
+          });
+        }
+      });
+    }
+
+    // --- 7. RENDER QUESTION FUNCTION (SELECTION + NEXT/BACK FLOW) ---
+    function renderQuestion(isBackNav = false) {
+      isTransitioning = true;
+      const q = QUESTIONS_DATA[currentStep];
+      const total = QUESTIONS_DATA.length;
+
+      // Update progress bar
+      const pct = Math.round(((currentStep) / total) * 100);
+      progressBar.style.width = `${pct}%`;
+
+      screenQuestion.classList.add('fade-out');
+
+      setTimeout(() => {
+        const t = I18N[currentLang] || I18N.en;
+        const langKey = (q.title[currentLang] ? currentLang : 'en');
+
+        questionStep.innerText = `${currentLang === 'ru' ? 'Вопрос' : 'Question'} ${currentStep + 1} / ${total}`;
+        questionCategory.innerText = q.category[langKey] || q.category.en;
+        questionTitle.innerText = q.title[langKey] || q.title.en;
+        questionSubtitle.innerText = q.subtitle[langKey] || q.subtitle.en;
+
+        optionsContainer.innerHTML = '';
+        const currentSelectedOpt = selectedAnswers[currentStep];
+
+        q.options.forEach((opt, idx) => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          const isSelected = (currentSelectedOpt === opt);
+          card.className = `option-card group flex flex-col text-left bg-white rounded-2xl border ${isSelected ? 'selected' : 'border-gray-200/90'} overflow-hidden cursor-pointer focus:outline-none relative transition-all duration-200`;
+
+          const optTitle = opt.title[langKey] || opt.title.en;
+          const optDesc = opt.desc[langKey] || opt.desc.en;
+
+          card.innerHTML = `
+            <div class="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden">
+              <img src="${opt.img}" 
+                   alt="${optTitle}" 
+                   loading="eager"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-2.5 left-2.5 w-6 h-6 rounded-lg bg-black/60 backdrop-blur-sm text-white font-bold text-xs flex items-center justify-center">
+                ${String.fromCharCode(65 + idx)}
+              </div>
+              <div class="check-badge absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#030213] text-white ${isSelected ? 'opacity-100 scale-100' : 'opacity-0 scale-50'} transform transition-all duration-200 flex items-center justify-center">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="font-bold text-sm sm:text-base text-[#030213] group-hover:text-black leading-snug">
+                  ${optTitle}
+                </h3>
+                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                  ${optDesc}
+                </p>
+              </div>
+            </div>
+          `;
+
+          card.addEventListener('click', () => {
+            handleSelectOption(card, opt);
+          });
+
+          optionsContainer.appendChild(card);
+        });
+
+        screenQuestion.classList.remove('fade-out');
+        screenQuestion.classList.add('fade-in');
+        isTransitioning = false;
+      }, 160);
+    }
+
+    // --- 8. OPTION SELECTION (INSTANT CHOICE + SMOOTH PROGRESSION) ---
+    function handleSelectOption(cardElement, opt) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      // Clear previous selections in optionsContainer
+      optionsContainer.querySelectorAll('.option-card').forEach(c => {
+        c.classList.remove('selected');
+        c.classList.add('border-gray-200/90');
+        const badge = c.querySelector('.check-badge');
+        if (badge) {
+          badge.classList.remove('opacity-100', 'scale-100');
+          badge.classList.add('opacity-0', 'scale-50');
+        }
+      });
+
+      // Mark clicked card as selected immediately
+      cardElement.classList.add('selected');
+      cardElement.classList.remove('border-gray-200/90');
+      const badge = cardElement.querySelector('.check-badge');
+      if (badge) {
+        badge.classList.remove('opacity-0', 'scale-50');
+        badge.classList.add('opacity-100', 'scale-100');
+      }
+
+      // Record selected answer
+      selectedAnswers[currentStep] = opt;
+
+      // Instant smooth progression with a slight 200ms delay so user sees tap
+      setTimeout(() => {
+        currentStep++;
+        if (currentStep < QUESTIONS_DATA.length) {
+          renderQuestion(false);
+        } else {
+          // Calculate final scores from all selected answers
+          calculateScores();
+          progressBar.style.width = '100%';
+          screenQuestion.classList.add('fade-out');
+          setTimeout(() => {
+            screenQuestion.classList.add('hidden');
+            showResult();
+          }, 180);
+        }
+      }, 200);
+    }
+
+    // --- 9. WINNER CALCULATION & RESULT PRESENTATION ---
+    function getCurrentWinner() {
+      let maxScore = -1;
+      let tied = [];
+      for (const [id, score] of Object.entries(scores)) {
+        if (score > maxScore) {
+          maxScore = score;
+          tied = [id];
+        } else if (score === maxScore) {
+          tied.push(id);
+        }
+      }
+      const winningId = tied[Math.floor(Math.random() * tied.length)] || 'warm_organic';
+      return DIRECTIONS_DB[winningId] || DIRECTIONS_DB.warm_organic;
+    }
+
+    function showResult(customWinner = null) {
+      const winner = customWinner || getCurrentWinner();
+      lastResultWinner = winner;
+      const langKey = (winner.name[currentLang] ? currentLang : 'en');
+
+      resultStyleName.innerText = winner.name[langKey] || winner.name.en;
+      resultStyleTagline.innerText = `"${winner.tagline[langKey] || winner.tagline.en}"`;
+      resultStyleImage.src = winner.img;
+
+      // Substyles visual cards with images
+      resultSubstyles.innerHTML = '';
+      winner.substyles.forEach(sub => {
+        const card = document.createElement('div');
+        card.className = 'flex flex-col bg-white rounded-2xl border border-gray-200/90 overflow-hidden text-left p-2 shadow-2xs hover:border-black/30 hover:shadow-md transition-all group';
+        const subName = (typeof sub === 'object' ? (sub.name[langKey] || sub.name.en || sub.name) : sub);
+        const subImg = (typeof sub === 'object' ? sub.img : 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=400&q=80');
+        const subDesc = (typeof sub === 'object' ? (sub.desc ? (sub.desc[langKey] || sub.desc.en || sub.desc) : '') : '');
+
+        card.innerHTML = `
+          <div class="w-full aspect-[4/3] rounded-xl bg-gray-100 overflow-hidden mb-1.5 relative">
+            <img src="${subImg}" alt="${subName}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="px-1 pb-1">
+            <h5 class="font-bold text-xs text-[#030213] leading-snug group-hover:text-black">${subName}</h5>
+            ${subDesc ? `<p class="text-[10px] text-gray-500 leading-tight mt-0.5">${subDesc}</p>` : ''}
+          </div>
+        `;
+        resultSubstyles.appendChild(card);
+      });
+
+      // Humanized Psychological Profile
+      resultRecharge.innerText = winner.recharge[langKey] || winner.recharge.en;
+      resultFlaw.innerText = winner.flaw[langKey] || winner.flaw.en;
+      resultSuperpower.innerText = winner.superpower[langKey] || winner.superpower.en;
+      resultClearanceRule.innerText = winner.clearanceRule[langKey] || winner.clearanceRule.en;
+
+      // Primary CTA link
+      resultAppCta.href = `https://homeplannerapp.com/?utm_source=style_quiz&utm_medium=lead_magnet&utm_campaign=interior_style_quiz_2026&utm_content=${winner.id}_cta`;
+
+      // Swatches Grid
+      swatchesGrid.innerHTML = '';
+      winner.palette.forEach(color => {
+        const swatchBtn = document.createElement('button');
+        swatchBtn.type = 'button';
+        swatchBtn.className = 'group flex flex-col items-center gap-1.5 focus:outline-none cursor-pointer';
+        swatchBtn.innerHTML = `
+          <div class="w-full aspect-square rounded-xl shadow-xs border border-black/10 group-hover:scale-105 group-hover:shadow-md transition-all relative flex items-center justify-center"
+               style="background-color: ${color.hex};">
+            <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 text-white text-[9px] px-1 py-0.5 rounded font-mono">
+              Copy
+            </span>
+          </div>
+          <span class="text-[10px] font-mono font-bold text-gray-800">${color.hex}</span>
+          <span class="text-[9px] text-gray-400 truncate max-w-full text-center hidden sm:block">${color.name}</span>
+        `;
+
+        swatchBtn.addEventListener('click', () => {
+          copyToClipboard(color.hex, `Copied ${color.name} (${color.hex})!`);
+        });
+
+        swatchesGrid.appendChild(swatchBtn);
+      });
+
+      // Update Share Dialog parameters with GitHub Pages subpath safety
+      const baseUrl = (window.location.protocol === 'file:' ? 'https://milmusina.github.io' : window.location.origin);
+      const pathUrl = (window.location.protocol === 'file:' ? '/interior-style-quiz/' : window.location.pathname);
+      const shareUrl = `${baseUrl}${pathUrl}?style=${winner.id}&lang=${currentLang}`;
+      const pathDir = pathUrl.endsWith('/') ? pathUrl : pathUrl.substring(0, pathUrl.lastIndexOf('/') + 1);
+      const mediaUrl = winner.img.startsWith('http') ? winner.img : `${baseUrl}${pathDir}${winner.img.replace(/^\//, '')}`;
+      const shareText = (currentLang === 'ru' 
+        ? `Мой стиль интерьера — ${winner.name[langKey]}! Узнайте свой в Home Planner: ${shareUrl}`
+        : `My interior design direction is ${winner.name[langKey]}! Check yours in Home Planner: ${shareUrl}`);
+      shareUrlInput.value = shareUrl;
+
+      if (shareTelegram) {
+        shareTelegram.href = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+      }
+      if (shareWhatsApp) {
+        shareWhatsApp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+      }
+      if (sharePinterest) {
+        sharePinterest.href = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&media=${encodeURIComponent(mediaUrl)}&description=${encodeURIComponent(shareText)}`;
+      }
+
+      screenResult.classList.remove('hidden');
+      screenResult.classList.remove('fade-out');
+      screenResult.classList.add('fade-in');
+      isTransitioning = false;
+    }
+
+    // Helper function for clean multiline text wrapping on canvas
+    function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 3) {
+      if (!text) return y;
+      const words = text.split(' ');
+      let line = '';
+      let currentY = y;
+      let count = 0;
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          ctx.fillText(line.trim(), x, currentY);
+          line = words[n] + ' ';
+          currentY += lineHeight;
+          count++;
+          if (count >= maxLines - 1 && n < words.length - 1) {
+            let rest = words.slice(n).join(' ');
+            while (ctx.measureText(rest + '...').width > maxWidth && rest.length > 0) {
+              const lastSpace = rest.lastIndexOf(' ');
+              if (lastSpace === -1) break;
+              rest = rest.substring(0, lastSpace);
+            }
+            ctx.fillText(rest + '...', x, currentY);
+            return currentY + lineHeight;
+          }
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line.trim(), x, currentY);
+      return currentY + lineHeight;
+    }
+
+    // Helper function to split text into lines that fit maxWidth
+    function wrapTextLines(ctx, text, maxWidth) {
+      if (!text) return [];
+      const words = text.split(' ');
+      const lines = [];
+      let currentLine = words[0] || '';
+      for (let i = 1; i < words.length; i++) {
+        const word = words[i];
+        const width = ctx.measureText(currentLine + ' ' + word).width;
+        if (width < maxWidth) {
+          currentLine += ' ' + word;
+        } else {
+          lines.push(currentLine);
+          currentLine = word;
+        }
+      }
+      if (currentLine) lines.push(currentLine);
+      return lines;
+    }
+
+    const COLOR_NAMES_RU = {
+      "#F4F0EA": "Кремовый", "#D8CBB9": "Береста", "#8C8275": "Грейж", "#4A453E": "Тёмный дуб", "#B5A895": "Песочный",
+      "#F9F8F6": "Белоснежный", "#E5DFD5": "Светлый ясень", "#D7CABE": "Овсяный", "#7D8B8E": "Сланцевый", "#2B2F33": "Угольный",
+      "#EAE3D2": "Кремовый", "#A87C4F": "Тёплый орех", "#B85D19": "Терракота", "#2A4736": "Оливковый", "#1E252B": "Угольный",
+      "#FDFBF7": "Меловой", "#D27D56": "Терракота", "#A4896D": "Олива", "#637059": "Шалфей", "#34404A": "Эгейский",
+      "#EAE6DF": "Бетон", "#9E5B42": "Кирпичный", "#8B4513": "Коньячный", "#54585A": "Стальной", "#1C1D1F": "Карбон",
+      "#D8CCA3": "Пергамент", "#543D2B": "Орех", "#26382E": "Изумрудный", "#431921": "Винный", "#161618": "Обсидиан",
+      "#FAF7F2": "Алебастр", "#D5CFC7": "Версальский", "#C5A059": "Золото", "#3E5165": "Синий ампир", "#202124": "Мрамор",
+      "#F6F4EE": "Льняной", "#B8C29D": "Матча", "#4D6257": "Эвкалипт", "#CFA775": "Мёд и дуб", "#3E342B": "Хвоя"
+    };
+
+    const EYEBROW_I18N = {
+      "ru": "ТВОЙ ИСТИННЫЙ СТИЛЬ ИНТЕРЬЕРА:",
+      "en": "YOUR TRUE INTERIOR STYLE:",
+      "es": "TU VERDADERO ESTILO DE INTERIOR:",
+      "de": "DEIN WAHRE EINRICHTUNGSSTIL:",
+      "fr": "VOTRE VRAI STYLE D'INTÉRIEUR:",
+      "it": "IL TUO VERO STILE D'INTERNI:",
+      "pt": "SEU VERDADEIRO ESTILO DE DESIGN:",
+      "tr": "GERÇEK İÇ MEKAN TARZINIZ:",
+      "pl": "TWÓJ PRAWDZIWY STYL WNĘTRZA:",
+      "nl": "JOUW WARE INTERIEURSTIJL:",
+      "sv": "DIN SANNA INREDNINGSSTIL:",
+      "uk": "ТВІЙ СПРАВЖНІЙ СТИЛЬ ІНТЕР'ЄРУ:",
+      "ja": "あなたの本当のインテリアスタイル:",
+      "ko": "당신의 진정한 인테리어 스타일:",
+      "zh": "你真正的室内设计风格:",
+      "ar": "أسلوبك الداخلي الحقيقي:",
+      "hi": "आपकी वास्तविक इंटीरियर शैली:",
+      "id": "GAYA INTERIOR SEJATIMU:",
+      "vi": "PHONG CÁCH NỘI THẤT CỦA BẠN:",
+      "th": "สไตล์การตกแต่งภายในที่แท้จริงของคุณ:"
+    };
+
+    // --- 10. DYNAMIC 9:16 SOCIAL MEDIA CARD SYNTHESIZER (1080 x 1920) ---
+    async function generateStyleCardCanvas(winner) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1920;
+      const ctx = canvas.getContext('2d');
+      const langKey = (winner.name[currentLang] ? currentLang : 'en');
+      const isRu = (currentLang === 'ru');
+
+      // Preload assets: Hero moodboard & Home Planner logo
+      let sourceImg = null;
+      const dataUri = (window.HERO_DATA_URIS && window.HERO_DATA_URIS[winner.id]);
+      if (dataUri) {
+        const tempImg = new Image();
+        await new Promise((resolve) => {
+          tempImg.onload = () => { sourceImg = tempImg; resolve(); };
+          tempImg.onerror = () => resolve();
+          tempImg.src = dataUri;
+        });
+      } else {
+        const domImg = document.getElementById('result-style-image');
+        if (domImg && domImg.complete && domImg.naturalWidth > 0) {
+          sourceImg = domImg;
+        } else {
+          const tempImg = new Image();
+          if (winner.img.startsWith('http') && !winner.img.startsWith(window.location.origin)) {
+            tempImg.crossOrigin = 'anonymous';
+          }
+          await new Promise((resolve) => {
+            tempImg.onload = () => { sourceImg = tempImg; resolve(); };
+            tempImg.onerror = () => resolve();
+            tempImg.src = winner.img;
+          });
+        }
+      }
+
+      let appLogoImg = null;
+      if (window.APP_LOGO_DATA_URI) {
+        const lImg = new Image();
+        await new Promise((resolve) => {
+          lImg.onload = () => { appLogoImg = lImg; resolve(); };
+          lImg.onerror = () => resolve();
+          lImg.src = window.APP_LOGO_DATA_URI;
+        });
+      }
+
+      // 1. Warm neutral editorial background
+      ctx.fillStyle = '#FAF8F5';
+      ctx.fillRect(0, 0, 1080, 1920);
+
+      // 2. Header: Logo + Brand + Report Badge (Safe top zone)
+      if (appLogoImg && appLogoImg.naturalWidth > 0) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.roundRect(60, 95, 56, 56, 16);
+        ctx.clip();
+        ctx.drawImage(appLogoImg, 60, 95, 56, 56);
+        ctx.restore();
+      }
+
+      ctx.fillStyle = '#11100F';
+      ctx.font = '800 32px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('HOME PLANNER', appLogoImg ? 132 : 60, 134);
+
+      // Header badge on top right
+      ctx.fillStyle = '#EFEBE3';
+      ctx.beginPath();
+      ctx.roundRect(740, 100, 280, 48, 24);
+      ctx.fill();
+
+      ctx.fillStyle = '#6E685F';
+      ctx.font = 'bold 17px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isRu ? 'ИНТЕРЬЕРНЫЙ ТЕСТ' : 'INTERIOR QUIZ', 880, 130);
+
+      // Header divider
+      ctx.strokeStyle = '#ECE7DE';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(60, 175);
+      ctx.lineTo(1020, 175);
+      ctx.stroke();
+
+      // 3. Hero Moodboard Image (Generous 960x660 with cover crop)
+      const imgX = 60;
+      const imgY = 215;
+      const imgW = 960;
+      const imgH = 660;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.roundRect(imgX, imgY, imgW, imgH, 36);
+      ctx.clip();
+      if (sourceImg && sourceImg.naturalWidth > 0) {
+        const hRatio = imgW / sourceImg.naturalWidth;
+        const vRatio = imgH / sourceImg.naturalHeight;
+        const ratio = Math.max(hRatio, vRatio);
+        const sW = imgW / ratio;
+        const sH = imgH / ratio;
+        const sX = (sourceImg.naturalWidth - sW) / 2;
+        const sY = (sourceImg.naturalHeight - sH) / 2;
+        ctx.drawImage(sourceImg, sX, sY, sW, sH, imgX, imgY, imgW, imgH);
+      } else {
+        const grad = ctx.createLinearGradient(imgX, imgY, imgX + imgW, imgY + imgH);
+        grad.addColorStop(0, '#2D2824');
+        grad.addColorStop(1, '#1A1816');
+        ctx.fillStyle = grad;
+        ctx.fillRect(imgX, imgY, imgW, imgH);
+      }
+      ctx.restore();
+
+      ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(imgX, imgY, imgW, imgH, 36);
+      ctx.stroke();
+
+      // 4. Personalization Eyebrow Kicker (Generous gap below image: +68px)
+      const eyebrowY = imgY + imgH + 68;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#8C8275';
+      ctx.font = '800 20px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+      const eyebrowText = (EYEBROW_I18N[currentLang] || EYEBROW_I18N['en']);
+      ctx.fillText(eyebrowText, 60, eyebrowY);
+
+      // 5. Direction Title (Generous gap: +54px, bold typography)
+      const nameText = winner.name[langKey] || winner.name.en;
+      let titleFontSize = 54;
+      if (nameText.length > 36) titleFontSize = 48;
+      ctx.fillStyle = '#11100F';
+      ctx.font = '800 ' + titleFontSize + 'px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+      const titleLineHeight = Math.round(titleFontSize * 1.18);
+      const titleLines = wrapTextLines(ctx, nameText, 960).slice(0, 2);
+
+      let curTitleY = eyebrowY + 54;
+      titleLines.forEach((tl, idx) => {
+        ctx.fillText(tl, 60, curTitleY + (idx * titleLineHeight));
+      });
+      const titleBottomVisualY = curTitleY + ((titleLines.length - 1) * titleLineHeight) + 16;
+
+      // 6. Sub-styles: 2x2 Grid (Generous gap: +58px, 472px width pills)
+      const chipY = titleBottomVisualY + 58;
+      const colW = Math.floor((imgW - 16) / 2); // 472px
+      const rowH = 62;
+      const rowGap = 16;
+
+      if (winner.substyles && winner.substyles.length > 0) {
+        winner.substyles.slice(0, 4).forEach((sub, i) => {
+          const col = i % 2;
+          const row = Math.floor(i / 2);
+          const cx = imgX + col * (colW + 16);
+          const cy = chipY + row * (rowH + rowGap);
+          let subTitle = (typeof sub === "object" ? (sub.name[langKey] || sub.name.en || sub.name) : sub);
+
+          ctx.save();
+          ctx.fillStyle = "#FFFFFF";
+          ctx.beginPath();
+          ctx.roundRect(cx, cy, colW, rowH, 22);
+          ctx.fill();
+          ctx.strokeStyle = "#E5DFD5";
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          // Bullet dot in direction accent color
+          const dotColor = (winner.palette && winner.palette[1] ? winner.palette[1].hex : "#B85D19");
+          ctx.fillStyle = dotColor;
+          ctx.beginPath();
+          ctx.arc(cx + 28, cy + Math.floor(rowH / 2), 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          ctx.fillStyle = "#1A1816";
+          ctx.font = 'bold 22px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+          ctx.textAlign = "left";
+          ctx.fillText(subTitle, cx + 52, cy + 39);
+        });
+      }
+
+      // 7. 5-Color HEX Palette Swatches (Generous gap: +60px, luxurious height)
+      const totalChipsH = (rowH * 2) + rowGap; // 140px
+      const swatchCardY = chipY + totalChipsH + 60;
+      const swatchCardH = 230;
+      const swatchGap = 16;
+      const swatchW = Math.floor((imgW - (swatchGap * 4)) / 5);
+
+      winner.palette.forEach((color, i) => {
+        const sx = imgX + i * (swatchW + swatchGap);
+        ctx.save();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.beginPath();
+        ctx.roundRect(sx, swatchCardY, swatchW, swatchCardH, 24);
+        ctx.fill();
+        ctx.strokeStyle = "#EAE4DA";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.restore();
+
+        // Inner color block
+        ctx.save();
+        ctx.fillStyle = color.hex;
+        ctx.beginPath();
+        ctx.roundRect(sx + 12, swatchCardY + 12, swatchW - 24, 126, 18);
+        ctx.fill();
+        ctx.strokeStyle = "rgba(0,0,0,0.08)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.restore();
+
+        // HEX Code
+        ctx.fillStyle = "#11100F";
+        ctx.font = "800 19px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(color.hex, sx + swatchW / 2, swatchCardY + 172);
+
+        // Localized Color Name
+        const colorName = (isRu && COLOR_NAMES_RU[color.hex.toUpperCase()])
+          ? COLOR_NAMES_RU[color.hex.toUpperCase()]
+          : (color.name || "");
+        ctx.fillStyle = "#6E685F";
+        ctx.font = 'bold 16px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+        ctx.fillText(colorName, sx + swatchW / 2, swatchCardY + 202);
+      });
+
+      return canvas;
+    }
+
+    async function handleSaveCard() {
+      try {
+        const winner = lastResultWinner || getCurrentWinner();
+        showToast(currentLang === 'ru' ? 'Создаём карточку 9:16...' : 'Generating 9:16 story card...');
+        const canvas = await generateStyleCardCanvas(winner);
+        const fileName = `home_planner_${winner.id}_story_9x16.png`;
+
+        let downloaded = false;
+        try {
+          const dataUrl = canvas.toDataURL('image/png');
+          const link = document.createElement('a');
+          link.download = fileName;
+          link.href = dataUrl;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          downloaded = true;
+          showToast(currentLang === 'ru' ? 'Карточка 9:16 сохранена!' : '9:16 Story card saved!');
+        } catch (e) {
+          console.warn('dataURL fallback to blob:', e);
+        }
+
+        if (!downloaded && canvas.toBlob) {
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.download = fileName;
+              a.href = url;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              setTimeout(() => URL.revokeObjectURL(url), 1000);
+              showToast(currentLang === 'ru' ? 'Карточка 9:16 сохранена!' : '9:16 Story card saved!');
+            }
+          }, 'image/png');
+        }
+      } catch (err) {
+        console.error('Save card error:', err);
+        showToast(currentLang === 'ru' ? 'Не удалось сохранить. Попробуйте еще раз.' : 'Could not save card. Please try again.');
+      }
+    }
+
+    if (btnQuickDownload) {
+      btnQuickDownload.addEventListener('click', handleSaveCard);
+    }
+    if (shareInstagram) {
+      shareInstagram.addEventListener("click", async () => {
+        await handleSaveCard();
+        copyToClipboard(shareUrlInput.value || window.location.href);
+        const instaToast = (I18N[currentLang]?.toast_insta || (currentLang === "ru" 
+          ? "Карточка скачана! Открываем Instagram..." 
+          : "Card downloaded! Opening Instagram..."));
+        showToast(instaToast);
+
+        // Open Instagram app camera or Stories on mobile, or Instagram Web on desktop
+        setTimeout(() => {
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+          if (isMobile) {
+            window.location.href = "instagram://camera";
+            setTimeout(() => {
+              window.open("https://www.instagram.com/", "_blank");
+            }, 1200);
+          } else {
+            window.open("https://www.instagram.com/", "_blank");
+          }
+        }, 400);
+      });
+    }
+
+    // --- 11. SHARE BUTTON & MODAL ---
+    btnOpenShare.addEventListener('click', async () => {
+      const winner = lastResultWinner || getCurrentWinner();
+      const langKey = (winner.name[currentLang] ? currentLang : 'en');
+      const shareUrl = shareUrlInput.value || window.location.href;
+      const shareText = (currentLang === 'ru' 
+        ? `Мой стиль интерьера — ${winner.name[langKey]}! Узнайте свой в Home Planner: ${shareUrl}`
+        : `My interior design style is ${winner.name[langKey]}! Check yours in Home Planner: ${shareUrl}`);
+
+      // Native Web Share sheet (mobile iOS/Android)
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: winner.name[langKey],
+            text: shareText,
+            url: shareUrl
+          });
+          return;
+        } catch (shareErr) {
+          if (shareErr.name === 'AbortError') return;
+        }
+      }
+
+      openShareModal();
+    });
+
+    function openShareModal() {
+      shareModal.classList.remove('hidden');
+      setTimeout(() => {
+        shareModal.classList.remove('opacity-0');
+        shareModal.querySelector('div').classList.remove('scale-95');
+      }, 10);
+    }
+
+    function closeShareModal() {
+      shareModal.classList.add('opacity-0');
+      shareModal.querySelector('div').classList.add('scale-95');
+      setTimeout(() => {
+        shareModal.classList.add('hidden');
+      }, 200);
+    }
+
+    btnCloseShare.addEventListener('click', closeShareModal);
+    shareModal.addEventListener('click', (e) => {
+      if (e.target === shareModal) closeShareModal();
+    });
+
+    btnCopyShareUrl.addEventListener('click', () => {
+      copyToClipboard(shareUrlInput.value, I18N[currentLang]?.copied_toast || 'Copied to clipboard!');
+      btnCopyShareUrl.innerText = 'Copied!';
+      setTimeout(() => {
+        btnCopyShareUrl.innerText = I18N[currentLang]?.btn_copy || 'Copy';
+      }, 1800);
+    });
+
+    function copyToClipboard(text, message = 'Copied to clipboard!') {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text);
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+      }
+      showToast(message);
+    }
+
+    function showToast(msg) {
+      toastMessage.innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+      }, 2400);
+    }
+
+    // Initial language setup
+    setLanguage(currentLang);
+
+    // Direct direction URL query check
+    if (directDirection && DIRECTIONS_DB[directDirection]) {
+      screenIntro.classList.add('hidden');
+      showResult(DIRECTIONS_DB[directDirection]);
+    }
+
+    // --- 11. INSTANT IMAGE PRELOADER ENGINE (ZERO LATENCY CACHE) ---
+    function preloadQuizAssets() {
+      // 1. Instant priority: Preload Question 1 options into memory
+      if (typeof QUESTIONS_DATA !== "undefined" && QUESTIONS_DATA[0]) {
+        QUESTIONS_DATA[0].options.forEach(opt => {
+          const img = new Image();
+          img.fetchPriority = "high";
+          img.decoding = "async";
+          img.src = opt.img;
+        });
+      }
+
+      // 2. Background queue: Preload all remaining questions, hero covers and sub-styles
+      const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 50));
+      idleCallback(() => {
+        // Preload next questions
+        if (typeof QUESTIONS_DATA !== "undefined") {
+          for (let i = 1; i < QUESTIONS_DATA.length; i++) {
+            QUESTIONS_DATA[i].options.forEach(opt => {
+              const img = new Image();
+              img.decoding = "async";
+              img.src = opt.img;
+            });
+          }
+        }
+        // Preload all 8 hero covers and sub-styles
+        if (typeof DIRECTIONS_DB !== "undefined") {
+          Object.values(DIRECTIONS_DB).forEach(dir => {
+            if (dir.img) {
+              const h = new Image();
+              h.decoding = "async";
+              h.src = dir.img;
+            }
+            if (dir.substyles) {
+              dir.substyles.forEach(sub => {
+                if (sub.img) {
+                  const s = new Image();
+                  s.decoding = "async";
+                  s.src = sub.img;
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+
+    // Trigger preloader immediately on script execution
+    preloadQuizAssets();
+  </script>
+</body>
+</html>

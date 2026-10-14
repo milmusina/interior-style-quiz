@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+
+# Security and secret protection (Global Rules)
+*.keystore
+*.jks
+*.pem
+*.p12
+*.pkcs12
+secure-keys/
+.env*
