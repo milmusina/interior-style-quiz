@@ -70,9 +70,9 @@
     "@graph": [
       {
         "@type": "WebApplication",
-        "@id": "https://homeplannerapp.com/quiz/style/#app",
+        "@id": "https://milmusina.github.io/interior-style-quiz/#app",
         "name": "Home Planner Interior Style Diagnostic",
-        "url": "https://homeplannerapp.com/quiz/style/",
+        "url": "https://milmusina.github.io/interior-style-quiz/",
         "applicationCategory": "DesignApplication",
         "operatingSystem": "iOS, Android, macOS, Windows",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -80,7 +80,7 @@
       },
       {
         "@type": "Quiz",
-        "@id": "https://homeplannerapp.com/quiz/style/#quiz",
+        "@id": "https://milmusina.github.io/interior-style-quiz/#quiz",
         "name": "What Is Your True Interior Design Style?",
         "provider": { "@type": "Organization", "name": "Room Planner Ltd", "url": "https://homeplannerapp.com" }
       }
@@ -482,7 +482,7 @@
 
       <!-- Copy Direct Link Field -->
       <div class="relative">
-        <input id="share-url-input" type="text" readonly 
+        <input id="share-url-input" type="text" readonly value="https://milmusina.github.io/interior-style-quiz/"
                class="w-full text-xs bg-gray-100 border border-gray-200 rounded-xl py-2.5 pl-3 pr-20 text-gray-600 focus:outline-none">
         <button id="btn-copy-share-url" type="button" 
                 class="absolute right-1 top-1 bottom-1 px-3 bg-[#030213] text-white rounded-lg text-xs font-semibold hover:bg-black transition cursor-pointer"
@@ -2917,12 +2917,14 @@
         swatchesGrid.appendChild(swatchBtn);
       });
 
-      // Update Share Dialog parameters with GitHub Pages subpath safety
-      const baseUrl = (window.location.protocol === 'file:' ? 'https://milmusina.github.io' : window.location.origin);
-      const pathUrl = (window.location.protocol === 'file:' ? '/interior-style-quiz/' : window.location.pathname);
-      const shareUrl = `${baseUrl}${pathUrl}?style=${winner.id}&lang=${currentLang}`;
-      const pathDir = pathUrl.endsWith('/') ? pathUrl : pathUrl.substring(0, pathUrl.lastIndexOf('/') + 1);
-      const mediaUrl = winner.img.startsWith('http') ? winner.img : `${baseUrl}${pathDir}${winner.img.replace(/^\//, '')}`;
+      // Production GitHub Pages URL for viral sharing & parasite SEO
+      const isGitHub = window.location.hostname === 'milmusina.github.io';
+      const rootUrl = isGitHub 
+        ? `${window.location.origin}${window.location.pathname.replace(/\/index\.html$/, '')}` 
+        : 'https://milmusina.github.io/interior-style-quiz';
+      const cleanRoot = rootUrl.endsWith('/') ? rootUrl : rootUrl + '/';
+      const shareUrl = `${cleanRoot}?style=${winner.id}&lang=${currentLang}`;
+      const mediaUrl = `${cleanRoot}${winner.img.replace(/^\//, '')}`;
       const shareText = (currentLang === 'ru' 
         ? `Мой стиль интерьера — ${winner.name[langKey]}! Узнайте свой в Home Planner: ${shareUrl}`
         : `My interior design direction is ${winner.name[langKey]}! Check yours in Home Planner: ${shareUrl}`);
@@ -3307,7 +3309,9 @@
     if (shareInstagram) {
       shareInstagram.addEventListener("click", async () => {
         await handleSaveCard();
-        copyToClipboard(shareUrlInput.value || window.location.href);
+        const winner = lastResultWinner || getCurrentWinner();
+        const shareLink = shareUrlInput.value || (winner ? `https://milmusina.github.io/interior-style-quiz/?style=${winner.id}&lang=${currentLang}` : 'https://milmusina.github.io/interior-style-quiz/');
+        copyToClipboard(shareLink);
         const instaToast = (I18N[currentLang]?.toast_insta || (currentLang === "ru" 
           ? "Карточка скачана! Открываем Instagram..." 
           : "Card downloaded! Opening Instagram..."));
@@ -3332,7 +3336,7 @@
     btnOpenShare.addEventListener('click', async () => {
       const winner = lastResultWinner || getCurrentWinner();
       const langKey = (winner.name[currentLang] ? currentLang : 'en');
-      const shareUrl = shareUrlInput.value || window.location.href;
+      const shareUrl = shareUrlInput.value || (winner ? `https://milmusina.github.io/interior-style-quiz/?style=${winner.id}&lang=${currentLang}` : 'https://milmusina.github.io/interior-style-quiz/');
       const shareText = (currentLang === 'ru' 
         ? `Мой стиль интерьера — ${winner.name[langKey]}! Узнайте свой в Home Planner: ${shareUrl}`
         : `My interior design style is ${winner.name[langKey]}! Check yours in Home Planner: ${shareUrl}`);
