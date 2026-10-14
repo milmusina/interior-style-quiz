@@ -11,3 +11,8 @@ node_modules/
 *.pkcs12
 secure-keys/
 .env*
+
+# Temporary build crops
+assets/curated_crops/
+assets/curated_quadrants/
+
