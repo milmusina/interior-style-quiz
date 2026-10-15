@@ -316,7 +316,7 @@
           <!-- SUB-STYLES CARDS IN THIS DIRECTION -->
           <div class="mb-6">
             <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-2.5" data-i18n="substyles_label">
-              Стили этого направления
+              Styles in this direction:
             </span>
             <div id="result-substyles" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-2xl mx-auto">
               <!-- Dynamically populated style cards with thumbnails -->
@@ -420,7 +420,7 @@
                   type="button"
                   class="w-full py-3.5 px-6 rounded-full bg-stone-100 hover:bg-stone-200 text-[#030213] font-bold text-center text-sm sm:text-base border border-stone-300 hover:border-black transition-all shadow-xs flex items-center justify-center gap-2.5 cursor-pointer">
             <svg class="w-4 h-4 text-[#030213]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            <span data-i18n="btn_download_story">Скачать карточку для Stories (9:16)</span>
+            <span data-i18n="btn_download_story">Download 9:16 Story Card</span>
           </button>
 
           <!-- 3. Share Button -->
@@ -562,6 +562,7 @@
     "btn_copy": "Copy Link",
     "copied_toast": "Result link copied to clipboard!",
     "btn_next": "Next",
+    "btn_download_story": "Download 9:16 Story Card",
     "share_instagram": "Instagram",
     "toast_saved": "Style card saved to your device!",
     "toast_insta": "Image saved! Open Instagram and post to Stories"
@@ -603,6 +604,7 @@
     "btn_copy": "Копировать",
     "copied_toast": "Ссылка скопирована в буфер обмена!",
     "btn_next": "Далее",
+    "btn_download_story": "Скачать карточку для Stories (9:16)",
     "share_instagram": "Инстаграм",
     "toast_saved": "Карточка стиля сохранена на устройство!",
     "toast_insta": "Картинка сохранена! Откройте Instagram и добавьте в Stories"
@@ -3307,28 +3309,51 @@
       btnQuickDownload.addEventListener('click', handleSaveCard);
     }
     if (shareInstagram) {
-      shareInstagram.addEventListener("click", async () => {
-        await handleSaveCard();
+      shareInstagram.addEventListener("click", () => {
+        handleSaveCard();
         const winner = lastResultWinner || getCurrentWinner();
         const shareLink = shareUrlInput.value || (winner ? `https://milmusina.github.io/interior-style-quiz/?style=${winner.id}&lang=${currentLang}` : 'https://milmusina.github.io/interior-style-quiz/');
         copyToClipboard(shareLink);
         const instaToast = (I18N[currentLang]?.toast_insta || (currentLang === "ru" 
           ? "Карточка скачана! Открываем Instagram..." 
-          : "Card downloaded! Opening Instagram..."));
+          : "Story card saved! Opening Instagram..."));
         showToast(instaToast);
 
-        // Open Instagram app camera or Stories on mobile, or Instagram Web on desktop
-        setTimeout(() => {
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          if (isMobile) {
-            window.location.href = "instagram://camera";
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        if (isIOS) {
+          window.location.href = "instagram://app";
+          setTimeout(() => {
+            window.location.href = "https://www.instagram.com/";
+          }, 1500);
+        } else if (isAndroid) {
+          window.location.href = "intent://instagram.com/#Intent;package=com.instagram.android;scheme=https;end;";
+        } else {
+          window.open("https://www.instagram.com/", "_blank");
+        }
+      });
+    }
+
+    if (sharePinterest) {
+      sharePinterest.addEventListener('click', (e) => {
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        if (isIOS || isAndroid) {
+          e.preventDefault();
+          const webUrl = sharePinterest.href;
+          const queryParams = webUrl.split('?')[1] || '';
+
+          if (isIOS) {
+            window.location.href = `pinterest://pin/create/button/?${queryParams}`;
             setTimeout(() => {
-              window.open("https://www.instagram.com/", "_blank");
-            }, 1200);
-          } else {
-            window.open("https://www.instagram.com/", "_blank");
+              window.location.href = webUrl;
+            }, 1500);
+          } else if (isAndroid) {
+            window.location.href = `intent://pinterest.com/pin/create/button/?${queryParams}#Intent;package=com.pinterest;scheme=https;end;`;
           }
-        }, 400);
+        }
       });
     }
 
