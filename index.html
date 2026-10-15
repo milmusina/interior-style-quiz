@@ -493,6 +493,22 @@
     </div>
   </div>
 
+  <!-- IMAGE PREVIEW & DIRECT SAVE MODAL (MOBILE FOOLPROOF SAVE TO PHOTOS) -->
+  <div id="image-preview-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-4 text-center shadow-2xl relative flex flex-col items-center">
+      <button type="button" onclick="closeImagePreviewModal()" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 flex items-center justify-center cursor-pointer text-sm font-bold">✕</button>
+      <h3 id="preview-modal-title" class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-1">Your 9:16 Story Card</h3>
+      <p id="preview-modal-instruction" class="text-[11px] text-stone-500 mb-3">Press and hold the card to save to your Photos gallery:</p>
+      <div class="w-full max-h-[60vh] overflow-hidden rounded-2xl border border-stone-200 shadow-inner mb-3 flex items-center justify-center bg-stone-50">
+        <img id="preview-modal-img" src="" alt="Story Card" class="w-full max-h-[58vh] h-auto object-contain select-auto pointer-events-auto" style="-webkit-touch-callout: default !important; -webkit-user-select: auto !important; user-select: auto !important;" />
+      </div>
+      <div class="flex items-center gap-2 w-full">
+        <a id="preview-modal-download-link" href="#" download="" class="flex-1 py-2.5 px-4 rounded-xl bg-black text-white text-xs font-bold text-center">Save Image</a>
+        <button type="button" onclick="closeImagePreviewModal()" class="py-2.5 px-4 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#030213] text-white text-xs font-semibold py-2.5 px-4 rounded-xl shadow-2xl opacity-0 pointer-events-none transform translate-y-3 flex items-center gap-2">
     <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -2643,6 +2659,43 @@
     const toast = document.getElementById('toast');
     const toastMessage = document.getElementById('toast-message');
 
+    const imagePreviewModal = document.getElementById('image-preview-modal');
+    const previewModalImg = document.getElementById('preview-modal-img');
+    const previewModalDownloadLink = document.getElementById('preview-modal-download-link');
+
+    window.openImagePreviewModal = function(dataUrl, fileName) {
+      if (!imagePreviewModal || !previewModalImg) return;
+      previewModalImg.src = dataUrl;
+      const titleEl = document.getElementById('preview-modal-title');
+      const instrEl = document.getElementById('preview-modal-instruction');
+      if (titleEl) titleEl.innerText = (currentLang === 'ru' ? 'Ваша карточка 9:16' : 'Your 9:16 Story Card');
+      if (instrEl) instrEl.innerText = (currentLang === 'ru' ? 'Зажмите картинку пальцем, чтобы сохранить в Фото:' : 'Press and hold the card to save to your Photos gallery:');
+
+      if (previewModalDownloadLink) {
+        previewModalDownloadLink.href = dataUrl;
+        previewModalDownloadLink.download = fileName || 'home_planner_story_card.png';
+        previewModalDownloadLink.innerText = (currentLang === 'ru' ? 'Сохранить' : 'Save Image');
+      }
+      imagePreviewModal.classList.remove('hidden');
+      setTimeout(() => {
+        imagePreviewModal.classList.remove('opacity-0');
+      }, 10);
+    };
+
+    window.closeImagePreviewModal = function() {
+      if (!imagePreviewModal) return;
+      imagePreviewModal.classList.add('opacity-0');
+      setTimeout(() => {
+        imagePreviewModal.classList.add('hidden');
+      }, 200);
+    };
+
+    if (imagePreviewModal) {
+      imagePreviewModal.addEventListener('click', (e) => {
+        if (e.target === imagePreviewModal) window.closeImagePreviewModal();
+      });
+    }
+
     // --- 5. INITIALIZE LOCALIZATION ---
     function setLanguage(lang) {
       if (!I18N[lang]) lang = 'en';
@@ -3268,37 +3321,48 @@
         showToast(currentLang === 'ru' ? 'Создаём карточку 9:16...' : 'Generating 9:16 story card...');
         const canvas = await generateStyleCardCanvas(winner);
         const fileName = `home_planner_${winner.id}_story_9x16.png`;
+        const dataUrl = canvas.toDataURL('image/png');
 
-        let downloaded = false;
-        try {
-          const dataUrl = canvas.toDataURL('image/png');
-          const link = document.createElement('a');
-          link.download = fileName;
-          link.href = dataUrl;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          downloaded = true;
-          showToast(currentLang === 'ru' ? 'Карточка 9:16 сохранена!' : '9:16 Story card saved!');
-        } catch (e) {
-          console.warn('dataURL fallback to blob:', e);
-        }
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isMobile = isIOS || isAndroid;
 
-        if (!downloaded && canvas.toBlob) {
-          canvas.toBlob((blob) => {
+        // 1. Mobile Web Share API with Files (iOS Safari / Android Chrome):
+        // Opens the OS share sheet with the image file, allowing "Save Image" to Photos / Camera Roll
+        if (navigator.share && window.File && canvas.toBlob) {
+          try {
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
             if (blob) {
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.download = fileName;
-              a.href = url;
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-              setTimeout(() => URL.revokeObjectURL(url), 1000);
-              showToast(currentLang === 'ru' ? 'Карточка 9:16 сохранена!' : '9:16 Story card saved!');
+              const file = new File([blob], fileName, { type: 'image/png' });
+              if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                  files: [file],
+                  title: (winner.name && winner.name[currentLang]) ? winner.name[currentLang] : 'Interior Style Card'
+                });
+                return;
+              }
             }
-          }, 'image/png');
+          } catch (shareErr) {
+            if (shareErr.name === 'AbortError') return;
+            console.warn('Native file share error:', shareErr);
+          }
         }
+
+        // 2. Mobile fallback when WebShare is unavailable/cancelled:
+        // Open preview modal so user can long-press image to "Save Image" to Photos
+        if (isMobile) {
+          openImagePreviewModal(dataUrl, fileName);
+          return;
+        }
+
+        // 3. Desktop browser download
+        const link = document.createElement('a');
+        link.download = fileName;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast(currentLang === 'ru' ? 'Карточка 9:16 сохранена!' : '9:16 Story card saved!');
       } catch (err) {
         console.error('Save card error:', err);
         showToast(currentLang === 'ru' ? 'Не удалось сохранить. Попробуйте еще раз.' : 'Could not save card. Please try again.');
@@ -3308,29 +3372,65 @@
     if (btnQuickDownload) {
       btnQuickDownload.addEventListener('click', handleSaveCard);
     }
+
     if (shareInstagram) {
-      shareInstagram.addEventListener("click", () => {
-        handleSaveCard();
-        const winner = lastResultWinner || getCurrentWinner();
-        const shareLink = shareUrlInput.value || (winner ? `https://milmusina.github.io/interior-style-quiz/?style=${winner.id}&lang=${currentLang}` : 'https://milmusina.github.io/interior-style-quiz/');
-        copyToClipboard(shareLink);
-        const instaToast = (I18N[currentLang]?.toast_insta || (currentLang === "ru" 
-          ? "Карточка скачана! Открываем Instagram..." 
-          : "Story card saved! Opening Instagram..."));
-        showToast(instaToast);
+      shareInstagram.addEventListener("click", async () => {
+        try {
+          const winner = lastResultWinner || getCurrentWinner();
+          const shareLink = shareUrlInput.value || (winner ? `https://milmusina.github.io/interior-style-quiz/?style=${winner.id}&lang=${currentLang}` : 'https://milmusina.github.io/interior-style-quiz/');
+          copyToClipboard(shareLink);
 
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isAndroid = /Android/i.test(navigator.userAgent);
+          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+          const isAndroid = /Android/i.test(navigator.userAgent);
+          const isMobile = isIOS || isAndroid;
 
-        if (isIOS) {
-          window.location.href = "instagram://app";
-          setTimeout(() => {
-            window.location.href = "https://www.instagram.com/";
-          }, 1500);
-        } else if (isAndroid) {
-          window.location.href = "intent://instagram.com/#Intent;package=com.instagram.android;scheme=https;end;";
-        } else {
-          window.open("https://www.instagram.com/", "_blank");
+          showToast(currentLang === 'ru' ? 'Подготавливаем карточку...' : 'Preparing story card...');
+          const canvas = await generateStyleCardCanvas(winner);
+          const fileName = `home_planner_${winner.id}_story_9x16.png`;
+          const dataUrl = canvas.toDataURL('image/png');
+
+          // If mobile supports Web Share with files, invoke it.
+          // On iOS/Android, Instagram Stories is an option right in the share sheet, handing the 9:16 image directly to Instagram Stories!
+          if (navigator.share && window.File && canvas.toBlob) {
+            try {
+              const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+              if (blob) {
+                const file = new File([blob], fileName, { type: 'image/png' });
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                  await navigator.share({
+                    files: [file],
+                    title: 'Home Planner 3D Style Card'
+                  });
+                  return;
+                }
+              }
+            } catch (shareErr) {
+              if (shareErr.name === 'AbortError') return;
+              console.warn('Native share error:', shareErr);
+            }
+          }
+
+          // Fallback if native file share isn't supported or fails:
+          if (isMobile) {
+            openImagePreviewModal(dataUrl, fileName);
+          }
+          const instaToast = (I18N[currentLang]?.toast_insta || (currentLang === "ru" 
+            ? "Ссылка скопирована! Открываем Instagram..." 
+            : "Link copied! Opening Instagram..."));
+          showToast(instaToast);
+
+          if (isIOS) {
+            window.location.href = "instagram://app";
+            setTimeout(() => {
+              window.location.href = "https://www.instagram.com/";
+            }, 1500);
+          } else if (isAndroid) {
+            window.location.href = "intent://instagram.com/#Intent;package=com.instagram.android;scheme=https;end;";
+          } else {
+            window.open("https://www.instagram.com/", "_blank");
+          }
+        } catch (err) {
+          console.error('Instagram share error:', err);
         }
       });
     }
